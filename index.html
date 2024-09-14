@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki do Call Center🛜</title>
+    <link rel="icon" href="https://i.ibb.co/2cJ7gjS/favicon-32x32.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe Ui';
+            background: linear-gradient(90deg, #5ea0e6, #1076e2);;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(90deg, #58a9ff, #f37201);
+            color: white;
+            padding: 18px;
+            text-align: center;
+            font-size: 2em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        #container {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+        nav {
+            width: 350px;
+            background: linear-gradient(90deg, #5ea0e6, #1076e2);
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin-bottom: 15px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px 15px;
+            background-color: #004080;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #0066cc;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.5);
+        }
+        section {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            flex-grow: 1;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 100px); 
+            border-radius: 8px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        section.active {
+            display: block;
+        }
+        h2 {
+            color: #004080;
+            border-bottom: 2px solid #004080;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #000000;
+            border-bottom: 2px solid #004080;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h4 {
+            color: #ffffff;
+            border-bottom: 2px solid #004080;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        p, ul {
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+        .process-column, .department-column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .process-column button, .department-column button {
+            background-color: #00509e;
+            color: white;
+            padding: 40px;
+            border: none;
+            border-radius: 8px;
+            width: 30%;
+            cursor: help;
+            transition: background-color 0.3s ease;
+        }
+        .process-column button:hover, .department-column button:hover {
+            background-color: #007bff93;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            border-radius: 8px;
+        }
+        .popup.active {
+            display: block;
+        }
+        .popup h3 {
+            margin-top: 0;
+        }
+        .close-btn {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .close-btn:hover {
+            background-color: #c9302c;
+        }
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .roteador {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .roteador:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .roteador img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .roteador img:hover {
+            transform: scale(1.10);
+        }
+        .roteador h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .roteador p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .roteador a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .roteador a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <img src="https://www.gbsn.com.br/gbs/assets/images/loader/logo.png" alt="Logo" style="height: 50px; vertical-align: middle;">
+    Wiki do Call Center
+</header>
+
+    <div id="container">
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('introducao')">🎚️Introdução</a></li>
+                <li><a href="#" onclick="showSection('departamentos')">📈Departamentos</a></li>
+                <li><a href="#" onclick="showSection('protocolos')">💻Protocolos</a></li>
+                <li><a href="#" onclick="showSection('ferramentas')"> 🔧Ferramentas</a></li>
+                <li><a href="#" onclick="showSection('conexao')">🛜Roteadores</a></li>
+                <li><a href="#" onclick="showSection('cursos')">📚Cursos</a></li>
+                <li><a href="#" onclick="showSection('faq')">❓Perguntas Frequentes</a></li>
+                <h4>Feito por Rodrigo S.⚡</h4>
+            </ul>
+        </nav>
+
+        <section id="introducao">
+            <div>
+                <h2>Introdução</h2>
+                <img src="https://i.ibb.co/6NPTVPb/1-removebg-preview.png" alt="ImagemIntro" style="height: 300px;">
+                <img src="https://media.tenor.com/cOzgHz34BacAAAAi/wikipedia-wiki.gif" alt="ImagemIntro" style="height: 300px;">
+                <h2>Bem-vindo à Wiki do Call Center!</h2>
+                <p>Você encontrará todas as informações necessárias para realizar um atendimento de qualidade aos nossos clientes. Explore os tópicos ao lado para aprender mais sobre os processos, ferramentas e técnicas que utilizamos.</p>
+            </div>
+        </section>        
+
+        <section id="protocolos">
+            <h2>Protocolos e Processos</h2>
+            <div class="process-column">
+                <button onclick="showPopup('protocolo1')"><strong>Protocolo 1: Informações</strong></button>
+                <button onclick="showPopup('protocolo2')"><strong>Protocolo 2: Segunda via de fatura</strong></button>
+                <button onclick="showPopup('protocolo3')"><strong>Protocolo 3: Informe de pagamento</strong></button>
+                <button onclick="showPopup('protocolo4')"><strong>Protocolo 4: Renovação contratual</strong></button>
+                <button onclick="showPopup('protocolo5')"><strong>Protocolo 5: Alteração de vencimento</strong></button>
+                <button onclick="showPopup('protocolo6')"><strong>Protocolo 6: Suspensão contratual</strong></button>
+                <button onclick="showPopup('protocolo7')"><strong>Protocolo 7: Internet lenta</strong></button>
+                <button onclick="showPopup('protocolo8')"><strong>Protocolo 8: Ordem de Serviço (o.s)</strong></button>
+                <button onclick="showPopup('protocolo9')"><strong>Protocolo 9: Configuração de roteador</strong></button>
+                <button onclick="showPopup('protocolo10')"><strong>Protocolo 10: Análise de desconto</strong></button>
+                <button onclick="showPopup('protocolo11')"><strong>11: Negociação de Débitos</strong> </button>
+                <button onclick="showPopup('protocolo12')"><strong>Protocolo 12: Sem conexão</strong></button>
+                <button onclick="showPopup('protocolo13')"><strong>Protocolo 13: Faturas não liquidadas</strong></button>
+                <button onclick="showPopup('protocolo14')"><strong>Protocolo 14: Contestação de faturas</strong></button>
+                <button onclick="showPopup('protocolo15')"><strong>Protocolo 15: Alteração de titularidade</strong></button>
+                <button onclick="showPopup('protocolo16')"><strong>Protocolo 16: Mudança de ambiente / configuração de roteador</strong></button>
+                <button onclick="showPopup('protocolo17')"><strong>Protocolo 17: Vendas de produto</strong></button>
+                <button onclick="showPopup('protocolo18')"><strong>Protocolo 18: Solicitação de cancelamento</strong></button>
+                <button onclick="showPopup('protocolo19')"><strong>Protocolo 19: Retirada de comodato</strong></button>
+                <button onclick="showPopup('protocolo20')"><strong>Protocolo 20: Mudança de endereço</strong></button>
+                <button onclick="showPopup('protocolo21')"><strong>Protocolo 21: Ouvidoria</strong></button>
+                <button onclick="showPopup('protocolo22')"><strong>Protocolo 22: Nota Fiscal</strong></button>
+                <button onclick="showPopup('protocolo23')"><strong>Protocolo 23 teste</strong></button>
+        </section>
+
+        <section id="departamentos">
+            <h2>Departamentos</h2>
+            <div class="department-column">
+                <button onclick="showPopup('n1')">Relacionamento N1</button>
+                <button onclick="showPopup('n2')">Suporte Nível 2</button>
+                <button onclick="showPopup('comercial')">Comercial / CRM</button>
+                <button onclick="showPopup('financeiro')">Faturamento</button>
+                <button onclick="showPopup('negociação')">Negociação</button>
+                <button onclick="showPopup('pj')">Atendimento Pj e N3</button>
+                <button onclick="showPopup('retenção')">Retenção e Ouvidoria</button>
+                <button onclick="showPopup('logi')">Logística</button>
+                <button onclick="showPopup('pres')">Presencial</button>
+            </div>
+        </section>
+
+        <section id="conexao">
+            <h2>Conexão</h2>
+            <div class="catalogo">
+                <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=PFn0GK8C6Mk&t=22s&pp=ygURcnggMTUwMCBpbnRlbGJyYXM%3D" target="_blank">
+                        <img src="https://cdn.awsli.com.br/2561/2561656/produto/231728034/rx-1500-frontal-ir498f20qp.png" alt="RX 1500">
+                        <h3>RX 1500</h3>
+                        <p>Fabricante: INTELBRAS</p>
+                        <p>Ip de acesso: 192.168.2.1</p>
+                        <p>Portas: Giga</p>
+                    </a>
+                    <a href="https://manuais.intelbras.com.br/manual-linha-rx/ChangeLogRX1500.html" target="_blank">Baixar Firmware</a>
+                </div>
+                <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=av3SdMO-ra4" target="_blank">
+                        <img src="https://salescdn.net/TWDsbGkzHQ13sOi8KL9aPynuloU=/adaptive-fit-in/500x0/prod/store/13601/medias/product/roteador-wireless-action-rg-1200---giga-7-1672758375998.webp" alt="RG 1200">
+                        <h3>RG 1200</h3>
+                        <p>Fabricante: INTELBRAS</p>
+                        <p>Ip de acesso: 10.0.0.1</p>
+                        <p>Portas: Giga</p>
+                        <a href="https://www.intelbras.com/pt-br/ajuda-download/faq/roteador-wireless-smart-dual-band-gigabit-action-rg-1200" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=Syboz9otYxY&pp=ygURcmYgMTIwMCBpbnRlbGJyYXM%3D" target="_blank">
+                        <img src="https://cdagua.vtexassets.com/arquivos/ids/187270/Roteador-Intelbras-Action-RF-1200-Wi-Fi-5.jpg?v=638361056456300000" alt="RG 1200">
+                        <h3>RF 1200</h3>
+                        <p>Fabricante: INTELBRAS</p>
+                        <p>Ip de acesso: 192.168.2.1</p>
+                        <p>Portas: Fast</p>
+                        <a href="https://www.intelbras.com/pt-br/ajuda-download/faq/roteador-wireless-smart-dual-band-action-rf-1200" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=6xNB3nZN_rI&pp=ygURZ2YgMTIwMCBpbnRlbGJyYXM%3D" target="_blank">
+                        <img src="https://backend.intelbras.com/sites/default/files/2019-11/roteadorGF1200_frontal.png" alt="RX 1500">
+                        <h3>GF 1200</h3>
+                        <p>Fabricante: INTELBRAS</p>
+                        <p>Ip de acesso: 10.0.0.1</p>
+                        <p>Portas: Giga</p>
+                        <a href="https://manual-bifrost.intelbras.com.br/ChangeLogGF1200.html" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=dx9Sn9IcmoY&pp=ygUJaXdyIDMwMDBu" target="_blank">
+                        <img src="https://minasmateriais.com.br/wp-content/uploads/2018/04/roteador_wireless_3000n.png" alt="RG 1200">
+                        <h3>IWR 3000N</h3>
+                        <p>Fabricante: INTELBRAS</p>
+                        <p>Ip de acesso: 192.168.2.1</p>
+                        <p>Portas: Fast</p>
+                        <a href="https://www.intelbras.com/pt-br/ajuda-download/faq/roteador-wireless-com-ipv6-iwr-3000n" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=SV-XDIfbQmM&pp=ygUGUkYgMzAx" target="_blank">
+                        <img src="https://backend.intelbras.com/sites/default/files/styles/large/public/2022-01/Perspectiva-Frontal_1.png" alt="RG 1200">
+                        <h3>RF 301 K</h3>
+                        <p>Fabricante: INTELBRAS</p>
+                        <p>Ip de acesso: 192.168.2.1</p>
+                        <p>Portas: Fast</p>
+                        <a href="https://www.intelbras.com/pt-br/ajuda-download/faq/roteador-wi-fi-n-300-mpbs-rf-301k" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=Ew5GXooVcaI&pp=ygUNdGVuZGEgYWMxMjAwIA%3D%3D" target="_blank">
+                        <img src="https://pic.tendacn.com/pro_pictures/AC8/AC8/1-0.png" alt="RX 1500">
+                        <h3>TENDA AC 1200</h3>
+                        <p>Fabricante: TENDA</p>
+                        <p>Ip de acesso: 192.168.2.1</p>
+                        <p>Portas: Giga</p>
+                        <a href="https://www.tendacn.com/br/download/list-3.html" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=Ew5GXooVcaI&pp=ygUNdGVuZGEgYWMxMjAwIA%3D%3D" target="_blank">
+                        <img src="https://www.shoplivre.com.br/img/products/660/000.png" alt="RG 1200">
+                        <h3>MERCUSYS AC 1200</h3>
+                        <p>Fabricante: MERCUSYS</p>
+                        <p>Ip de acesso: 192.168.1.1</p>
+                        <p>Portas: Giga</p>
+                        <a href="https://www.mercusys.com.br/download/ac12" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=-aQvzmiPCvk&pp=ygUOaHVhd2VpIGhnODU0Nm0%3D" target="_blank">
+                        <img src="https://www.powernetwork.com.br/storage/produtos/February2021/cXnxP6ar5IcMXIZE40sf.webp" alt="RG 1200">
+                        <h3>HUAWEI HG8546M0</h3>
+                        <p>Fabricante: HUAWEI</p>
+                        <p>Ip de acesso: 192.168.2.1</p>
+                        <p>Portas: Fast</p>
+                        <a href="https://support.huawei.com/enterprise/en/access-network/echolife-hg8546m-pid-21465065/software" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=0LVffkNfUV8&pp=ygUSdzUgMTIwMGYgaW50ZWxicmFz" target="_blank">
+                        <img src="https://www.lojamelhordosul.com.br/site/wp-content/uploads/2020/08/Wi-Force-W5-1200F-Intelbras-Roteador.png" alt="RX 1500">
+                        <h3>W5 1200F</h3>
+                        <p>Fabricante: INTELBRAS</p>
+                        <p>Ip de acesso: 192.168.2.1</p>
+                        <p>Portas: Fast</p>
+                        <a href="https://manual-bifrost.intelbras.com.br/ChangeLogW5_1200F.html" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=Pc8ebN8M0VA&pp=ygUPdHdpYmkgaW50ZWxicmFz" target="_blank">
+                        <img src="https://intelbras.vteximg.com.br/arquivos/ids/164535-800-800/twibi_giga_pack.png?v=637852932829700000" alt="RG 1200">
+                        <h3>TWIBI</h3>
+                        <p>Fabricante: INTELBRAS</p>
+                        <p>Ip de acesso: 192.168.5.1</p>
+                        <p>Portas: Giga</p>
+                        <a href="https://www.intelbras.com/pt-br/ajuda-download/faq/roteador-wi-fi-5-mesh-ac-1200-twibi-giga" target="_blank">Baixar Firmware</a>
+                    </div>
+                    <div class="roteador">
+                    <a href="https://www.youtube.com/watch?v=MC2YE8UPnvM&pp=ygUYd2lmaWJlciAxMjEgYWMgaW50ZWxicmFz" target="_blank">
+                        <img src="https://backend.intelbras.com/sites/default/files/2023-09/Perspectiva_frontal_4.png" alt="RG 1200">
+                        <h3>WIFIBER</h3>
+                        <p>Fabricante: INTELBRAS</p>
+                        <p>Ip de acesso: 192.168.1.1</p>
+                        <p>Portas: Giga</p>
+                        <a href="https://forum.intelbras.com.br/viewtopic.php?f=2729&t=77209" target="_blank">Baixar Firmware</a>
+                    </div>
+            
+        </section>
+
+        
+        <section id="ferramentas">
+    <h2>Ferramentas do Call Center</h2>
+    <p>Plataformas de uso no dia a dia:</p>
+    <ul>
+        <li>⚙️ Voalle: <a href="https://erp.gbsn.com.br/" target="_blank">https://erp.gbsn.com.br/</a></li>
+        <li>⌨️ Huggy: <a href="https://www.huggy.app/panel/" target="_blank">https://www.huggy.app/panel/</a></li>
+        <li>📞 Native: <a href="https://norte.native-infinity.com.br" target="_blank">https://norte.native-infinity.com.br</a></li>
+        <li>💻 Made4it: <a href="https://made4.gbsn.com.br/" target="_blank">https://made4.gbsn.com.br/</a></li>
+    </ul>
+    
+    <p>Sites do Rodrigo para GBSNET:</p>
+    <ul>
+        <li><a href="http://gbsvencimento.free.nf" target="_blank">gbsvencimento.free.nf</a> (alteração de vencimento)</li>
+        <li><a href="http://gbstextos.free.nf" target="_blank">gbstextos.free.nf</a> (textos padrão)</li>
+        <li><a href="http://gbsmulta.free.nf" target="_blank">gbsmulta.free.nf</a> (multa rescisória)</li>
+        <li><a href="http://gbsroteador.free.nf" target="_blank">gbsroteador.free.nf</a> (simulador de roteador)</li>
+        <li><a href="http://gbsmodelos.free.nf" target="_blank">gbsmodelos.free.nf</a> (Catálogo de roteadores)</li>
+    </ul>
+    
+    <p><strong>Obs:</strong> Caso não funcione, apague o "https://" do endereço web no navegador.</p>
+</section>
+
+        <section id="cursos">
+            <h2>Cursos disponibilizados para aprendizado no Call Center</h2>
+            <p>GBS Academy</p>
+            <ul>
+    <li><a href="https://academy.gbsn.com.br/auth/login?redirect=%2F" target="_blank">GBS Academy Login</a></li>
+            </ul>
+            <p>Universidade Voalle</p>
+            <ul>
+    <li><a href="https://universidadevoalle.com.br/" target="_blank">Universidade Voalle Login</a></li>
+            </ul>
+            <p>Curso INTELBRAS</p>
+<ul>
+    <li><a href="http://cursos.intelbras.com.br" target="_blank">Curso INTELBRAS</a></li>
+</ul>
+
+<h3>Administrativos</h3>
+<ul>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01ODEzJmt0X2RpZGF4aXM9dG9w" target="_blank">Como atrair e selecionar profissionais</a> - duração: 1 hora</li>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01NTQwJmt0X2RpZGF4aXM9dG9w" target="_blank">Como criar um plano de comunicação eficiente</a> - duração: 1 hora</li>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01NDY4Jmt0X2RpZGF4aXM9dG9w" target="_blank">Qualidade do serviço ao cliente</a> - duração: 2 horas</li>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01MjA4Jmt0X2RpZGF4aXM9dG9w" target="_blank">Como encantar o cliente</a> - duração: 40 minutos</li>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01MTUwJmt0X2RpZGF4aXM9dG9w" target="_blank">Quais indicadores escolher e como calcular</a> - duração: 40 minutos</li>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NDYxJmt0X2RpZGF4aXM9dG9w" target="_blank">Dicas de pós-venda para provedores</a> - duração: 1 hora</li>
+</ul>
+
+<h3>Técnico</h3>
+<ul>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01OTQyJmt0X2RpZGF4aXM9dG9w" target="_blank">Introdução às redes de computadores</a> - duração: 2 horas</li>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NzIzJmt0X2RpZGF4aXM9dG9w" target="_blank">Fundamentos: redes EPON e GPON</a> - duração: 6 horas</li>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01NjAyJmt0X2RpZGF4aXM9dG9w" target="_blank">Técnico: redes GPON</a> - duração: 4 horas</li>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NDIzJmt0X2RpZGF4aXM9dG9w" target="_blank">Técnico: redes EPON</a> - duração: 8 horas</li>
+    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NzE5Jmt0X2RpZGF4aXM9dG9w" target="_blank">Certificação: redes EPON</a> - duração: 8 horas</li>
+</ul>
+
+<section id="introducao">
+            <div style="flex: 1;">
+                <h2>Introdução</h2>
+                <img src="https://i.ibb.co/6NPTVPb/1-removebg-preview.png" alt="ImagemIntro" style="height: 450px;">
+                <p>Bem-vindo à Wiki do Call Center! Aqui você encontrará todas as informações necessárias para realizar um atendimento de qualidade aos nossos clientes. Explore os tópicos ao lado para aprender mais sobre os processos, ferramentas e técnicas que utilizamos.</p>
+            </div>
+        </section>
+
+        </section>
+
+        <section id="faq">
+            <h2>Perguntas Frequentes (FAQ)</h2>
+            <p>Encontre respostas para as perguntas mais comuns dos nossos colaboradores:</p>
+            <ul>
+                <li><h3>Qual o limite aceitável para um sinal óptico?</h3> <p>-27. Passando disso já é necessário validar para uma correção de sinal.</p></li>
+                <li><h3>Qual o tempo limite para aguardar interação no huggy?</h3> <p>Até 30 minutos. Dependendo da demanda, esse tempo de espera pode cair para dar maior vazão aos atendimentos.</p></li>
+                <li><h3>Onde encontro atualização para um modelo de roteador específico?</h3> <p>No site da fabricante, ou para facilitar, acesse "gbsmodelos.free.nf".</p></li>
+                <li><h3>O que fazer quando o roteador do cliente está travado após tentar o reset?</h3> <p>Validar com o N2 e verificar se o cliente tem renovação recente, caso não, aproveite o ensejo para negociar um novo roteador para o cliente (venda ou renovação).</p></li>
+            </ul>
+        </section>
+
+
+        <!-- Popups dos Protocolos e Departamentos -->
+        <div id="popup-protocolo1" class="popup">
+            <h3>Informações</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="infoimagem" style="height: 400px; vertical-align: middle;">
+            <p>É um protocolo mais “geral” , utilizado em casos onde é apenas repassado alguma informação ou esclarecimento de alguma dúvida do cliente. Exemplos: Planos disponíveis na localidade, qual a velocidade contratada, quantidade de aparelhos conectados na rede, usuário e senha do aplicativo GbsNet, do acesso ao roteador, etc... Também se configura como informações o atendimento que tinha uma natureza específica mas não deu continuidade por alguma razão.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo2" class="popup">
+            <h3>Segunda via de fatura</h3>
+            <img src="https://i.ibb.co/JBqXMrf/segunda.png" alt="svimagem" style="height: 400px; vertical-align: middle;">
+            <p>Este é o tipo de processo destinado ao envio de boletos pelos canais de atendimentos sendo eles por Whatsapp ou email. OBS: Se a fatura estiver vencida com menos de 30 dias pode ser atualizada pelo site do Sicredi (opcional). Se estiver com mais de 30 dias a partir da data de vencimento, será necessário encaminhar para o faturamento atualizar.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo3" class="popup">
+            <h3>Informe de pagamento</h3>
+            <img src="https://i.ibb.co/kmRBQbf/informe.png" alt="inimagem" style="height: 400px; vertical-align: middle;">
+            <p>Este processo é gerado para desbloqueio da conexão mediante a apresentação do comprovante de pagamento. 
+                OBS: Torna-se muito necessário validar se os dados do comprovante condizem com o boleto. Se o cliente tiver bloqueado é necessário abrir 2 atendimentos, uma para o informe de pagamento e outro para desbloqueio</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo4" class="popup">
+            <h3>Protocolo 4: Renovação contratual</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="infoimagem" style="height: 400px; vertical-align: middle;">
+            <p>A renovação é um TERMO DE CONCESSÃO CONDICIONAL DE BENEFÍCIOS. O termo faz concessão de descontos e/ou isenção ao CLIENTE de um beneficio, equipamento ou serviço. Exemplo: Desconto pro-rata ou fixo, roteador em comodato ou isenção da taxa de um serviço. O cliente deve estar de acordo com o valor da fidelidade . A fidelidade vale por 12 meses (12 faturas pagas) e o cliente está sujeito a multa rescisória caso cancele antes desse prazo</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo5" class="popup">
+            <h3>Protocolo 5: Alteração de vencimento</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="avimagem" style="height: 400px; vertical-align: middle;">
+            <p>Processo destinado quando o cliente deseja alterar a sua data de vencimento. 
+                OBS: Não podendo ser realizado caso o cliente tenha faturas pendentes. Datas disponíveis em ambas as modalidades contratuais: 05, 10, 15, 20, 25 
+                Ao realizar o processo, o cliente deve estar ciente dos valores proporcionais gerados devido a alteração, após isso, o protocolo pode continuar</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo6" class="popup">
+            <h3>Protocolo 5: Suspensão contratual</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="ssimagem" style="height: 400px; vertical-align: middle;">
+            <p>Já o processo de suspensão contratual é destinado quando o cliente deseja fazer a suspensão dos serviços pelo prazo mínimo de 30 dias e máximo 120 (4 meses). 
+                OBS: O cliente também não pode ter faturas pendentes.
+                O cliente pode fazer a suspensão apenas a cada 12 meses
+                Após isso, deve-se gerar uma Ordem de Serviço (O.S) para que sejam recolhidos os aparelhos em comodato da casa do cliente que optou pela suspensão.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo7" class="popup">
+            <h3>Internet lenta</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="itoimagem" style="height: 400px; vertical-align: middle;">
+            <p>Utilizada quando a solicitação do cliente for Internet Lenta na residência, é sempre necessário fazer a triagem para melhor entendimento do problema. 
+                Exemplo: Desde quando o problema surgiu, rede especifica: 2.4 ou 5G, aplicativo específico, DNS errado, agendamento de Wi-Fi, posição onde o roteador está, números de equipamentos conectados comparados ao plano do cliente, plano desatualizado, roteador que não é compatível ao plano.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo8" class="popup">
+            <h3>Ordem de Serviço (o.s)</h3>
+            <img src="https://i.ibb.co/K2zMmVV/sem-conex-o.png" alt="infdoimagem" style="height: 400px; vertical-align: middle;">
+            <p>A ordem de serviço é destinada quando o cliente informa que está com led vermelho (LOS), equipamento queimado, roteador desconfigurado (e não resolveu com ajuda interna), então é gerado um protocolo e um técnico é redirecionado para a residência dentro do nosso prazo padrão. 
+                Para a abertura da O.S é necessário que alguém valide se o cliente está OFF no sistema (olt), a validação é feita com o suporte técnico interno - N2</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo9" class="popup">
+            <h3>Configuração de roteador</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="inwfoimagem" style="height: 400px; vertical-align: middle;">
+            <p>Utilizar este protocolo quando houver necessidade de Auxílio ao cliente para configuração do seu roteador e o mesmo não esteja sem acesso. Como por exemplo, uma Alteração de senha, configuração de DNS, liberação de porta, e demais configurações que possam ser realizadas no roteador do cliente.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo10" class="popup">
+            <h3>Análise de desconto</h3>
+            <img src="https://i.ibb.co/4pSBbhQ/desconto.png" alt="infyoimagem" style="height: 400px; vertical-align: middle;">
+            <p>Utilizamos esse processo para solicitações de desconto. Com este possuindo 2 tipos de motivos: Internet Lenta e Sem conexão. 
+                É necessário saber com o cliente as datas aproximadas de duração do problema antes de abrir o protocolo. 
+                Vale ressaltar que, o protocolo possui um prazo de até 30 dias para ser analisado e aplicado na fatura subsequente do cliente (não pode ser em fatura vencida)</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo11" class="popup">
+            <h3>Negociação de Débitos</h3>
+            <img src="https://i.ibb.co/1KD61Cx/negocia-o.png" alt="infioimagem" style="height: 400px; vertical-align: middle;">
+            <p>Temos dois modos, que são: Negociação receptiva, que é quando o cliente entra em contato para solicitar que seja realizada uma negociação dos seus débitos em aberto, já a Negociação ativa, é quando o próprio departamento liga para realizar a cobrança. É necessário então encaminhar um protocolo para o departamento. Podendo negociar a partir de 3 faturas vencidas. Sempre validar com o cliente se a negociação é para reativar, suspender ou cancelar.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo12" class="popup">
+            <h3>Sem conexão</h3>
+            <img src="https://i.ibb.co/K2zMmVV/sem-conex-o.png" alt="infloimagem" style="height: 400px; vertical-align: middle;">
+            <p>Utilizada quando a reclamação do cliente for Falta de Conexão no local. Neste caso também é necessário fazer a triagem para identificar o problema. Validar se há Led vermelho, se o nome do wi-fi sumiu, led wi-fi apagada, luzes do roteador ou ONU apagadas, dentre outros detalhes, é também importante verificar se não está com rompimento na CTO do cliente.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo13" class="popup">
+            <h3>Faturas não liquidadas</h3>
+            <img src="https://i.ibb.co/fx1NvJj/faturasnao.png" alt="infddimagem" style="height: 400px; vertical-align: middle;">
+            <p>Utilizar este processo quando o cliente apresentar um comprovante de pagamento que ainda não foi liquidado de forma automática no nosso sistema. 
+            Nesses casos é necessário que também seja gerado e encaminhado um protocolo para que o faturamento possa apurar e validar.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo14" class="popup">
+            <h3>Contestação de faturas</h3>
+            <img src="https://i.ibb.co/GpQ61p0/contesta-o.png" alt="infoiamagem" style="height: 400px; vertical-align: middle;">
+            <p>A contestação de faturas é quando um cliente questiona uma cobrança indevida ou discorda de um valor cobrado. É necessário validar antes se o valor que esta sendo cobrado não esta em algum protocolo informando o motivo. Enquanto o protocolo está em apuração, o cliente pode ficar desbloqueado (se for o caso).</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo15" class="popup">
+            <h3>Alteração de titularidade</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="infoimaagem" style="height: 400px; vertical-align: middle;">
+            <p>Processo destinado quando o cliente deseja passar seu contrato para o nome de outra pessoa. Se o cliente tiver fidelidade recente o mesmo só poderá alterar por motivos financeiros, de mudança ou cancelamento. Se não tiver, pode alterar por qualquer razão. Apenas o titular pode solicitar a alteração. Se o CPF do novo titular tiver restrição SPC é cobrado R$100,00 caso não, R$30,00</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo16" class="popup">
+            <h3>Mudança de ambiente / configuração de roteador</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="infoaimagem" style="height: 400px; vertical-align: middle;">
+            <p>Processo destinado quando o cliente deseja mudar seus equipamentos de cômodo na mesma residência.
+                Exemplo: da sala pro quarto.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo17" class="popup">
+            <h3>Vendas de produto</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="infoiqmagem" style="height: 400px; vertical-align: middle;">
+            <p>É o processo destinado a vendas de equipamentos e produtos. Roteador e Cabos (caso o cliente danifique). Conectores (caso o cliente danifique) OBS: Quando for o caso de Cabos e Conectores o processo será de O.S/Sem conexão, pois o técnico precisa validar o produto danificado. OBS: Caso seja roteador, é necessário validar com o estoque da cidade do cliente quais os roteadores disponíveis antes de prosseguir com o processo.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo18" class="popup">
+            <h3>Solicitação de cancelamento</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="infsoimagem" style="height: 400px; vertical-align: middle;">
+            <p>É o processo destinado para a retenção do cliente. Quando o cliente entra em contato solicitando cancelamento do contrato é, missão do atendente tentar reverter o cliente no primeiro contato, mas caso o cliente não aceite, é gerado primeiramente o atendimento de reversão. Então será retornado o contato com o cliente pelo departamento responsável e analisado os motivos que o levaram a optar pelo encerramento do contrato. Estando ciente de todas as solicitações e necessidades do mesmo é feita uma proposta para que o cliente permaneça com os serviços ativos nos novos parâmetros negociados. Quando o cancelamento não é contornado o atendimento de reversão é finalizado e gerado um de Novo Cancelamento.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo19" class="popup">
+            <h3>Retirada de comodato</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="ianfoimagem" style="height: 400px; vertical-align: middle;">
+            <p>Suspensão contratual - Processo destinado quando o cliente deseja fazer a suspensão dos serviços Reativação contratual - Processo destinado quando o cliente deseja realizar a reativação dos serviços que estavam suspensos. OBS: Ao gerar a O.S para a instalação dos equipamentos deixar descrito quais equipamentos precisam ser instalados.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo20" class="popup">
+            <h3>Mudança de endereço</h3>
+            <img src="https://i.ibb.co/ZNWQZwc/mudan-a-de-endere-o.png" alt="infzoimagem" style="height: 400px; vertical-align: middle;">
+            <p>Nos processos de mudança de endereço e ambiente, o cliente não pode ter faturas de plano pendente. 
+                Para mudança de endereço é preciso do comprovante de residência e a localização do Google Maps para a verificação de viabilidade, caso o cliente não tiver o comprovante, o atendente precisa encaminhar a declaração de endereço.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo21" class="popup">
+            <h3>Ouvidoria</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="infozimagem" style="height: 400px; vertical-align: middle;">
+            <p>O processo de ouvidoria é um canal de comunicação criado para receber, analisar e dar encaminhamento às reclamações, sugestões, denúncias, elogios ou críticas dos clientes, cidadãos ou colaboradores de uma organização</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo21" class="popup">
+            <h3>Ouvidoria</h3>
+            <img src="https://i.ibb.co/9c0GjVd/informa-es.png" alt="infozimagem" style="height: 400px; vertical-align: middle;">
+            <p>O processo de ouvidoria é um canal de comunicação criado para receber, analisar e dar encaminhamento às reclamações, sugestões, denúncias, elogios ou críticas dos clientes, cidadãos ou colaboradores de uma organização</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo22" class="popup">
+            <h3>Nota Fiscal</h3>
+            <img src="xxxxxxxxxx" alt="notaimagem" style="height: 400px; vertical-align: middle;">
+            <p>O processo de nota fiscal ocorre quando o cliente solicita a NF e o atendente envia para o solicitante.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-protocolo23" class="popup">
+            <h3>Protocolo teste</h3>
+            <img src="xxxxxxxxxxxx" alt="testeuimg" style="height: 400px; vertical-align: middle;">
+            <p>O processo teste</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+
+        <!-- Popups dos Departamentos -->
+        <div id="popup-n1" class="popup">
+            <h3>Atendimento Nível 1</h3>
+            <p>Esse departamento é de suma importância para a empresa, pois é ele o responsável pelo primeiro contato “cliente-empresa” . É no N1 que encontramos os operadores de telemarketing, que são os colaboradores responsáveis por atender, tirar dúvidas, resolver problemas, gerar e encaminhar protocolos de atendimentos, etc. Como dito anteriormente, independente do departamento que o colaborador for designado, se torna indispensável a passagem pelo N1, pois esse setor proporciona uma experiência nos processos e demais rotinas da empresa que nenhum outro dá</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-n2" class="popup">
+            <h3>Suporte técnico interno – N2</h3>
+            <p>Como seu nome sugere, este departamento é responsável por solucionar problemas de conectividade de forma remota em contato telefônico com o cliente, como: sem conexão, internet lenta, alterações nos roteadores, equipamentos do cliente, e demais solicitações referentes à conexão. Este departamento também trabalha auxiliando o N1 em validações, notificações de parada (rompimento ou falha) e tudo o que abrange a rede do cliente. O diferencial desse departamento é que geralmente o contato acontece no mesmo dia, dependendo da demanda, o que reduz o tempo de espera do cliente, proporcionando mais satisfação.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-comercial" class="popup">
+            <h3>Financeiro</h3>
+            <p>O departamento Financeiro é responsável pela emissão de faturas, recebimentos e gestão de inadimplência.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-financeiro" class="popup">
+            <h3>Faturamento</h3>
+            <p>Este departamento da empresa, é responsável pelas solicitações financeiras do cliente, como por exemplo: lançamento de faturas, análise e resolução de problemas inerentes ao pagamento de mensalidades, taxas e outros valores, alteração de plano, reativação, cancelamento e suspensão de cada contrato. O faturamento também auxilia na auditoria de alguns processos e também faz parte do N1, trabalhando em conjunto para solucionar problemas, e atender as solicitações financeiras apresentadas por cada cliente.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-negociação" class="popup">
+            <h3>Negociação</h3>
+            <p>Departamento responsável por negociar com clientes inadimplentes, realizar contatos e notificações de cobrança via telefone, e-mail ou WhatsApp, recuperar equipamentos em comodato e negativação dos débitos. O processo de negociação pode variar dependendo do caso de cada cliente.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-pj" class="popup">
+            <h3>Atendimento Pj e N3</h3>
+            <p>Este setor cuida de todas as mesmas solicitações do N1, com a diferença é que são apenas solicitações que são feitas por clientes com planos comerciais, sejam em CPF ou CNPJ (maioria)</p>
+            <p>O N3 é responsável por solucionar problemas de conectividade (igualmente o N2) de forma remota, mas somente voltado para conexões de clientes comerciais e links dedicados</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-retenção" class="popup">
+            <h3>Retenção e Ouvidoria</h3>
+            <p>Setor que cuida dos processos de reversão e efetivação de solicitações de cancelamento, também cuida da análise e envio dos termos referentes as solicitações contratuais. Outra função deste departamento, é a ouvidoria e solicitações do Procon e Anatel.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-logi" class="popup">
+            <h3>Logística</h3>
+            <p>Setor que agenda e organiza as ordens de serviço (O.S) de cada localidade ou região.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+        <div id="popup-pres" class="popup">
+            <h3>Presencial</h3>
+            <p>Setor presente em todas as unidades da empresa espalhadas pelo estado, sendo o departamento de atendimento de forma presencial na frente de loja</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+
+        <!-- Script -->
+        <script>
+            function showSection(sectionId) {
+                var sections = document.querySelectorAll('section');
+                sections.forEach(function(section) {
+                    section.classList.remove('active');
+                });
+                var sectionToShow = document.getElementById(sectionId);
+                sectionToShow.classList.add('active');
+            }
+
+            function showPopup(id) {
+                var popup = document.getElementById('popup-' + id);
+                popup.classList.add('active');
+            }
+
+            function closePopup() {
+                var popups = document.querySelectorAll('.popup');
+                popups.forEach(function(popup) {
+                    popup.classList.remove('active');
+                });
+            }
+
+            showSection('introducao');
+        </script>
+    </div>
+</body>
+</html>
