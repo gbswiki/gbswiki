@@ -194,6 +194,202 @@
         .roteador a:hover {
             text-decoration: underline;
         }
+        /* Estilo para a caixa de pesquisa */
+        #pesquisaProtocolo {
+        width: 90%;
+        padding: 10px 15px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        outline: none;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        margin-bottom: 20px; /* Espaço abaixo da caixa de pesquisa */
+        }
+
+        /* Estilo ao focar na caixa de pesquisa */
+        #pesquisaProtocolo:focus {
+            border-color: #007bff; /* Cor da borda ao focar */
+            box-shadow: 2px 2px 12px rgba(0, 123, 255, 0.3); /* Sombra ao focar */
+        }
+
+        /* Ajuste do placeholder */
+        #pesquisaProtocolo::placeholder {
+            color: #888; /* Cor do placeholder */
+            font-style: italic;
+        }
+        /* Estilo geral da seção de introdução */
+        #introducao {
+            background: white
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo para o título */
+        #introducao h2 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo das imagens */
+        #introducao img {
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo para os parágrafos */
+        #introducao p {
+            font-size: 1.2em;
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        /* Lista de tópicos */
+        #introducao ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        #introducao ul li {
+            margin: 10px 0;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        /* Adicionando ícones de marcador na lista */
+        #introducao ul li::before {
+            content: '✔'; /* Marcador customizado */
+            position: absolute;
+            left: 0;
+            color: #1900ff; /* Cor dourada para destaque */
+            font-size: 1.2em;
+        }
+        /* Estilo para as tabelas */
+        table {
+            width: 95%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1em;
+            font-family: 'Arial', sans-serif;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table thead {
+            background-color: #007bff;
+            color: white;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background-color: #2f00ffa6;
+        }
+
+        table a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        table a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo do título */
+        #ferramentas h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Ajuste de ícones */
+        table td:first-child {
+            font-size: 1.2em;
+        }
+        .opcoes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 95%;
+            margin-left: auto;
+            margin: 0 auto;
+            
+            
+        }
+
+        .opcao {
+            width: 28%;
+            background-color: #007bffe5;
+            border-radius: 18px;
+            padding: 20px;
+            margin-top: 14px;
+            margin-left: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        p {
+            margin: 0;
+        }
+
+        button {
+            background-color: #210cd6e5;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.4s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.685);
+        }
+
+        button:hover {
+            background-color: #d35400ab;
+        }
+
+        .opcao {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .opcao:hover {
+            transform: scale(1.1);
+        }
+
+        .opcao button {
+            transition: background-color 0.3s ease;
+        }
+
+        .opcao:hover button {
+            background-color: #100cf1;
+        }
+
+        /* Estilo responsivo para dispositivos móveis */
+        @media (max-width: 768px) {
+            #introducao img {
+                height: 200px;
+            }
+
+            #introducao h2 {
+                font-size: 2em;
+            }
+
+            #introducao p, #introducao ul {
+                font-size: 1em;
+            }
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -221,6 +417,7 @@
                 <li><a href="#" onclick="showSection('ferramentas')"><strong>🔧Ferramentas</strong></a></li>
                 <li><a href="#" onclick="showSection('conexao')"><strong>📡Roteadores</strong></a></li>
                 <li><a href="#" onclick="showSection('materiais')"><strong>📑Materiais</strong></a></li>
+                <li><a href="#" onclick="showSection('textos')"><strong>📃Textos Padrão</strong></a></li>
                 <li><a href="#" onclick="showSection('cursos')"><strong>📚Cursos</strong></a></li>
                 <li><a href="#" onclick="showSection('faq')"><strong>❓Perguntas Frequentes</strong></a></li>
                 <h4>Feito por Rodrigo S.⚡</h4>
@@ -230,11 +427,129 @@
 
         <section id="introducao">
             <div>
-                <h2>Introdução</h2>
+                <h2>Bem-vindo à Wiki do Call Center!</h2>
                 <img src="https://i.ibb.co/6NPTVPb/1-removebg-preview.png" alt="ImagemIntro" style="height: 300px;">
                 <img src="https://media.tenor.com/cOzgHz34BacAAAAi/wikipedia-wiki.gif" alt="ImagemIntro" style="height: 300px;">
-                <h2>Bem-vindo à Wiki do Call Center!</h2>
-                <p><strong>Aqui você encontrará todas as informações necessárias para realizar um atendimento de qualidade aos nossos clientes. Explore os tópicos ao lado para aprender mais sobre os processos, ferramentas e técnicas que utilizamos.</strong>
+                <p><strong>Estamos aqui para ajudá-lo a realizar um atendimento de excelência! Nesta wiki, você encontrará tudo o que precisa saber para atender nossos clientes com agilidade e eficiência.</strong></p>
+                <p><strong>Explore as seções ao lado para aprender mais sobre:</strong></p>
+                <ul>
+                    <li><strong>Protocolos de atendimento e processos</strong></li>
+                    <li><strong>Materiais e cursos para aumentar o aprendizado</strong></li>
+                    <li><strong>Ferramentas que irão otimizar seu trabalho no dia a dia</strong></li>
+                </ul>
+                <p><strong>Estamos juntos nessa jornada de crescimento e qualidade no atendimento!</strong></p>
+            </div>
+        </section>
+        
+        <section id="textos">
+            <h2>Textos Padrão</h2>
+            <div class="opcoes">
+                <div class="opcoes">
+                        <div class="opcao">
+                    <p>Alteração de Titularidade</p>
+                    <button onclick="copiarTexto(&#39;Alteração de Titularidade\n\nMotivo da alteração:\n( ) Óbito\n( ) Mudança de Cidade\n( ) Dif. Financeiras\n( ) Outros\n\nTitular Antigo:\nN° CPF:\nN° RG:\n\nTitular Novo:\nN° CPF:\nN° RG:\nDt. de Nasc.:\nEmail:\nTelefone para contato:\n\nConsulta SPC realizada: [Sim ou Não]\nContrato Fidelidade: [Sim ou Não]&#39;)">Copiar</button>
+                </div>
+                
+                <div class="opcao">
+                    <p>Alteração de Vencimento</p>
+                    <button onclick="copiarTexto('Alteração de vencimento\n\nVencimento atual:\nVencimento para alteração:\nVlr. Diferença de vencimento ($): [isento, a calcular ou R$ 9,65]\nConsultor:')">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Atend. de Rompimento</p>
+                    <button onclick="copiarTexto(&#39;SOLICITAÇÃO DE RETORNO TÉCNICO.\n\nTecnologia: FTTH\nCliente: Residencial\nProblema: Sem Conexão\n\nRelato do cliente: Cliente confirmou LOS vermelho, sem acesso, foi verificado pelo departamento N2 e confirmado rompimento na localidade.\n\nDescrição do problema: Cliente afetado pelo rompimento na localidade, informado sobre o acontecido e prazo de normalização&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Configuração de Roteador</p>
+                    <button onclick="copiarTexto(&#39;Configuração de Roteador\n\nTecnologia: FTTH / Wireless\nCliente: Comercial / Residencial\nModelo ou Marca do roteador:\n\nRelato do cliente:\n\nNome do solicitante:\nTelefone do solicitante:&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Dados de login App GBSnet</p>
+                    <button onclick="copiarTexto(&#39;Aqui estão seus dados de login do app GBSnet:\nUsuário:\nSenha:&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Desconto</p>
+                    <button onclick="copiarTexto(&#39;Motivo: Sem Conexão / Internet lenta\nDatas:\nMelhor Horário pra retorno: Comercial\nCliente solicita desconto pelo período com problemas na conexão&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Faturas Não Liquidadas</p>
+                    <button onclick="copiarTexto(&#39;Faturas Não Liquidadas\n\nCliente informa ter efetuado o pagamento via Pix/Deposito\n\nNome do titular:\nFatura:\nVencimento:\nValor:\n\nDados do pagador:\nValor:\nBanco:\nData do pagamento:&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Informe de Pagamento</p>
+                    <button onclick="copiarTexto(&#39;Informe de pagamento\nMês:&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Informações</p>
+                    <button onclick="copiarTexto(&#39;Cliente solicitou informações sobre:\nInformações repassadas:\nDados Cadastrais Atualizados: SIM (  ) NAO (  )&#39;)">Copiar</button>
+                </div>
+                
+                 <div class="opcao">
+                    <p>Link app GBSnet</p>
+                    <button onclick="copiarTexto('Aqui estão os links para nosso aplicativo ao cliente\n\nAndroid:\nhttps://play.google.com/store/apps/details?id=br.com.portal.gbsnet\nIos:\nhttps://apps.apple.com/br/app/gbsnet/id1660805767')">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Mudança de Endereço</p>
+                    <button onclick="copiarTexto(&#39;Mudança de Endereço\n\nTecnologia: ( ) FTTH ( ) Wireless\nCTO: Porta:\nTipo: ( ) Para Outro Bairro ( ) Para Outra Cidade\nCliente: ( ) Comercial ( ) Residencial\n\nNovo Endereço\nRua:\nNúmero:\nBairro:\nCEP:\nCidade:\nReferência:\nTaxa:\nParcelamento:\n1ª Parcela:\n\nHorário preferencial para ligações:\nHorário preferencial para serviço:&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Negociação de Débitos</p>
+                    <button onclick="copiarTexto(&#39;Nome do Cliente:\nReativa:\nCliente SPC:\nNúmero de contato:\nHorário pra Retorno: Comercial\n\nCliente solicita retorno para que possa negociar seus débitos com a empresa.&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>O.S - Suporte Técnico</p>
+                    <button onclick="copiarTexto(&#39;SOLICITAÇÃO DE RETORNO TÉCNICO.\n\nTecnologia: FTTH/Wireless\nCTO: / PORTA:\nCliente: Comercial/Residencial\nProblema: Sem Conexão\n\nDescrição do problema:\n\nNome do solicitante:\nNumero para retorno:&#39;)">Copiar</button>
+                </div>
+                
+                <div class="opcao">
+                    <p>Ouvidoria</p>
+                    <button onclick="copiarTexto('Ouvidoria\n\nTipo de manifestação:\nTipo de Cliente:\nData de Adesão:\nRelato do cliente:\n\nFone para contato:\nE-mail:\nPeríodo preferencial para contato:')">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Renovação Contratual</p>
+                    <button onclick="copiarTexto(&#39;RENOVAÇÃO CONTRATUAL\n\nPlano Atual:\nPlano Novo:\nValor: R$\nDesconto Pro rata: R$\nValor final: R$\nDesconto Pg. em dia: R$\nValor final: R$\nProporcional: ISENTO\nFidelidade: R$ (          )\n\nINFORMAÇÕES SOBRE OS EQUIPAMENTOS ATUAIS\nTipo: ONU\nNecessidade: \n\nINFORMAÇÕES SOBRE O ROTEADOR\nPorta: GIGA\nTipo de disponibilização: Roteador será cedido em comodato. Compatível com o plano.\n\nCTO:\nPORTA:\n\nOBS:&#39;)">Copiar</button>
+                </div>
+                
+                <div class="opcao">
+                    <p>Reversão de Cancelamento</p>
+                    <button onclick="copiarTexto(&#39;Cancelamento\nNome do titular:\nTecnologia:\nCidade:\nAdesão:\nPlano de acesso:\nFidelidade:\nValor do benefício:\n\nMotivador do Cancelamento:\n-\n-\n-\n\nPropostas oferecidas ao cliente:\n-\n\nOperador de Atendimento:\nData do atendimento:\nCanal de atendimento:\nProtocolo de atendimento:&#39;)">Copiar</button>
+                </div>
+                
+                <div class="opcao">
+                    <p>Relato de Venda</p>
+                    <button onclick="copiarTexto(&#39;Relato da negociação:\n\n\nProposta de Renovação\nPlano Atual:\nPlano Novo:\nValor:\nDesconto Fixo:\nValor final:&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Segunda Via de Fatura</p>
+                    <button onclick="copiarTexto(&#39;Fatura encaminhada para o cliente via: Huggy\n\nFatura:\nVencimento:\nValor:&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Sem Interação</p>
+                    <button onclick="copiarTexto(&#39;SEM INTERAÇÃO\nCliente foi resgatado da fila de atendimentos, recebeu minha mensagem padrão, porém não houve nenhuma interação no chat por mais de 30 minutos, houve a necessidade de encerramento.&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Suspensão Contratual</p>
+                    <button onclick="copiarTexto(&#39;Tecnologia: ( ) FTTH ( ) Wireless\nMotivo: ( ) Viagem ( ) D. financeira ( ) Outro\n\nDescrição: Cliente solicitou a suspensão de seu Contrato pelo prazo estimado de 120 dias.\nRecolher material em comodato instalado no endereço do cliente.\n\nHorário preferencial para ligação:\nhorário preferencial para serviço:\nData limite para retirada:\n\nObservações:\nCTO:\nPorta:\n\nData limite para retirada:\n\nKit comodato Wirelles/FTTH:\n01 Roteador\n01 Antena /ONU\n01 Suporte de Ferro / Conectores Ópticos&#39;)">Copiar</button>
+                </div>
+        
+                <div class="opcao">
+                    <p>Venda de Serviço</p>
+                    <button onclick="copiarTexto(&#39;Venda de Serviço\n\nValor da taxa: R$ 50,00\nLançamento no mês:\nConfiguração:\nLocal: *informar se será na empresa ou residência&#39;)">Copiar</button>
+                </div>
+        
             </div>
         </section>
         
@@ -243,11 +558,14 @@
                 <h2>Materiais de Apoio</h2>
                 <h1><strong>Alteração de titularidade</strong></h1>
                 <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkWio_C0mo14Ii8oK?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="no"></iframe>
+                <h1><strong>Made4it</strong></h1>
+                <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkXEnW3wQ2KL9Kg4m?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="no"></iframe>
             </div>
         </section>
 
         <section id="protocolos">
             <h2>Protocolos e Processos</h2>
+            <input type="text" id="pesquisaProtocolo" placeholder="Buscar protocolo..." onkeyup="filtrarProtocolos()">
             <div class="process-column">
                 <button onclick="showPopup('protocolo1')"><strong>Protocolo 1: Informações</strong></button>
                 <button onclick="showPopup('protocolo2')"><strong>Protocolo 2: Segunda via de fatura</strong></button>
@@ -285,6 +603,7 @@
                 <button onclick="showPopup('pj')">Atendimento Pj e N3</button>
                 <button onclick="showPopup('retenção')">Retenção e Ouvidoria</button>
                 <button onclick="showPopup('logi')">Logística</button>
+                <button onclick="showPopup('infra')">Infra</button>
                 <button onclick="showPopup('pres')">Presencial</button>
             </div>
         </section>
@@ -406,60 +725,123 @@
 
         
         <section id="ferramentas">
-    <h2>Ferramentas do Call Center</h2>
-    <p>Plataformas de uso no dia a dia:</p>
-    <ul>
-        <li>⚙️ Voalle: <a href="https://erp.gbsn.com.br/" target="_blank">https://erp.gbsn.com.br/</a></li>
-        <li>⌨️ Huggy: <a href="https://www.huggy.app/panel/" target="_blank">https://www.huggy.app/panel/</a></li>
-        <li>📞 Native: <a href="https://norte.native-infinity.com.br" target="_blank">https://norte.native-infinity.com.br</a></li>
-        <li>💻 Made4it: <a href="https://made4.gbsn.com.br/" target="_blank">https://made4.gbsn.com.br/</a></li>
-    </ul>
-    
-    <p>Sites do Rodrigo para GBSNET:</p>
-    <ul>
-        <li><a href="http://gbsvencimento.free.nf" target="_blank">gbsvencimento.free.nf</a> (alteração de vencimento)</li>
-        <li><a href="http://gbstextos.free.nf" target="_blank">gbstextos.free.nf</a> (textos padrão)</li>
-        <li><a href="http://gbsmulta.free.nf" target="_blank">gbsmulta.free.nf</a> (multa rescisória)</li>
-        <li><a href="http://gbsroteador.free.nf" target="_blank">gbsroteador.free.nf</a> (simulador de roteador)</li>
-        <li><a href="http://gbsmodelos.free.nf" target="_blank">gbsmodelos.free.nf</a> (Catálogo de roteadores)</li>
-    </ul>
-    
-    <p><strong>Obs:</strong> Caso não funcione, apague o "https://" do endereço web no navegador.</p>
-</section>
+            <h2>Ferramentas do Call Center</h2>
+            <p>Plataformas de uso no dia a dia:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plataforma</th>
+                        <th>Descrição</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>⚙️ Voalle</td>
+                        <td>ERP para gestão de processos de telecomunicações.</td>
+                        <td><a href="https://erp.gbsn.com.br/" target="_blank">Acessar Voalle</a></td>
+                    </tr>
+                    <tr>
+                        <td>⌨️ Huggy</td>
+                        <td>Plataforma de atendimento e chat online.</td>
+                        <td><a href="https://www.huggy.app/panel/" target="_blank">Acessar Huggy</a></td>
+                    </tr>
+                    <tr>
+                        <td>📞 Native</td>
+                        <td>Ferramenta de gestão de telefonia nativa.</td>
+                        <td><a href="https://norte.native-infinity.com.br" target="_blank">Acessar Native</a></td>
+                    </tr>
+                    <tr>
+                        <td>💻 Made4it</td>
+                        <td>Sistema de controle de CPE por TR069.</td>
+                        <td><a href="https://made4.gbsn.com.br/" target="_blank">Acessar Made4it</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <p>Sites do Rodrigo para GBSNET:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Site</th>
+                        <th>Descrição</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🔄 Alteração de Vencimento</td>
+                        <td>Ferramenta para ajustar a data de vencimento da fatura.</td>
+                        <td><a href="http://gbsvencimento.free.nf" target="_blank">Acessar Site</a></td>
+                    </tr>
+                    <tr>
+                        <td>⚖️ Multa Rescisória</td>
+                        <td>Calculadora de multas por cancelamento de contrato.</td>
+                        <td><a href="http://gbsmulta.free.nf" target="_blank">Acessar Site</a></td>
+                    </tr>
+                    <tr>
+                        <td>📡 Simulador de Roteador</td>
+                        <td>Ferramenta para simular configurações de roteadores.</td>
+                        <td><a href="http://gbsroteador.free.nf" target="_blank">Acessar Site</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <p><strong>Obs:</strong> Caso não funcione, apague o "https://" do endereço web no navegador.</p>
+        </section>        
 
         <section id="cursos">
-            <h2>Cursos disponibilizados para aprendizado no Call Center</h2>
-            <p>GBS Academy</p>
+            <h2>📚 Cursos Disponibilizados para Aprendizado no Call Center</h2>
+        
+            <!-- GBS Academy -->
+            <div class="curso-section">
+                <h3>GBS Academy</h3>
+                <p>Treinamentos essenciais para o desenvolvimento de habilidades no Call Center:</p>
+                <ul>
+                    <li><a href="https://academy.gbsn.com.br/auth/login?redirect=%2F" target="_blank">🔑 Acessar GBS Academy</a></li>
+                </ul>
+            </div>
+        
+            <!-- Universidade Voalle -->
+            <div class="curso-section">
+                <h3>Universidade Voalle</h3>
+                <p>Capacitação para o uso da plataforma Voalle:</p>
+                <ul>
+                    <li><a href="https://universidadevoalle.com.br/" target="_blank">🎓 Acessar Universidade Voalle</a></li>
+                </ul>
+            </div>
+        
+            <!-- Curso Intelbras -->
+            <div class="curso-section">
+                <h3>Curso INTELBRAS</h3>
+                <p>Cursos técnicos e administrativos oferecidos pela Intelbras:</p>
+                <ul>
+                    <li><a href="http://cursos.intelbras.com.br" target="_blank">📘 Acessar Curso INTELBRAS</a></li>
+                </ul>
+            </div>
+        
+            <!-- Cursos Administrativos -->
+            <h3>💼 Cursos Administrativos</h3>
             <ul>
-    <li><a href="https://academy.gbsn.com.br/auth/login?redirect=%2F" target="_blank">GBS Academy Login</a></li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01ODEzJmt0X2RpZGF4aXM9dG9w" target="_blank">📝 Como atrair e selecionar profissionais</a> - duração: 1 hora</li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01NTQwJmt0X2RpZGF4aXM9dG9w" target="_blank">📊 Como criar um plano de comunicação eficiente</a> - duração: 1 hora</li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01NDY4Jmt0X2RpZGF4aXM9dG9w" target="_blank">🎯 Qualidade do serviço ao cliente</a> - duração: 2 horas</li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01MjA4Jmt0X2RpZGF4aXM9dG9w" target="_blank">✨ Como encantar o cliente</a> - duração: 40 minutos</li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01MTUwJmt0X2RpZGF4aXM9dG9w" target="_blank">📈 Quais indicadores escolher e como calcular</a> - duração: 40 minutos</li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NDYxJmt0X2RpZGF4aXM9dG9w" target="_blank">💼 Dicas de pós-venda para provedores</a> - duração: 1 hora</li>
             </ul>
-            <p>Universidade Voalle</p>
+        
+            <!-- Cursos Técnicos -->
+            <h3>🔧 Cursos Técnicos</h3>
             <ul>
-    <li><a href="https://universidadevoalle.com.br/" target="_blank">Universidade Voalle Login</a></li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01OTQyJmt0X2RpZGF4aXM9dG9w" target="_blank">🌐 Introdução às redes de computadores</a> - duração: 2 horas</li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NzIzJmt0X2RpZGF4aXM9dG9w" target="_blank">🔌 Fundamentos: redes EPON e GPON</a> - duração: 6 horas</li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01NjAyJmt0X2RpZGF4aXM9dG9w" target="_blank">🛠️ Técnico: redes GPON</a> - duração: 4 horas</li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NDIzJmt0X2RpZGF4aXM9dG9w" target="_blank">🔧 Técnico: redes EPON</a> - duração: 8 horas</li>
+                <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NzE5Jmt0X2RpZGF4aXM9dG9w" target="_blank">📜 Certificação: redes EPON</a> - duração: 8 horas</li>
             </ul>
-            <p>Curso INTELBRAS</p>
-<ul>
-    <li><a href="http://cursos.intelbras.com.br" target="_blank">Curso INTELBRAS</a></li>
-</ul>
-
-<h3>Administrativos</h3>
-<ul>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01ODEzJmt0X2RpZGF4aXM9dG9w" target="_blank">Como atrair e selecionar profissionais</a> - duração: 1 hora</li>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01NTQwJmt0X2RpZGF4aXM9dG9w" target="_blank">Como criar um plano de comunicação eficiente</a> - duração: 1 hora</li>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01NDY4Jmt0X2RpZGF4aXM9dG9w" target="_blank">Qualidade do serviço ao cliente</a> - duração: 2 horas</li>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01MjA4Jmt0X2RpZGF4aXM9dG9w" target="_blank">Como encantar o cliente</a> - duração: 40 minutos</li>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01MTUwJmt0X2RpZGF4aXM9dG9w" target="_blank">Quais indicadores escolher e como calcular</a> - duração: 40 minutos</li>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NDYxJmt0X2RpZGF4aXM9dG9w" target="_blank">Dicas de pós-venda para provedores</a> - duração: 1 hora</li>
-</ul>
-
-<h3>Técnico</h3>
-<ul>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01OTQyJmt0X2RpZGF4aXM9dG9w" target="_blank">Introdução às redes de computadores</a> - duração: 2 horas</li>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NzIzJmt0X2RpZGF4aXM9dG9w" target="_blank">Fundamentos: redes EPON e GPON</a> - duração: 6 horas</li>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD01NjAyJmt0X2RpZGF4aXM9dG9w" target="_blank">Técnico: redes GPON</a> - duração: 4 horas</li>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NDIzJmt0X2RpZGF4aXM9dG9w" target="_blank">Técnico: redes EPON</a> - duração: 8 horas</li>
-    <li><a href="https://cursos.intelbras.com.br/portal/layout/927/intelbras/pg_interna_sistema.asp?aW5jbHVkZT1jYXRhbG9nby9jdXJzb3Nfdmlldy5hc3AmQ3Vyc29JRD00NzE5Jmt0X2RpZGF4aXM9dG9w" target="_blank">Certificação: redes EPON</a> - duração: 8 horas</li>
-</ul>
+        </section>
+        
 
 <section id="introducao">
             <div style="flex: 1;">
@@ -472,16 +854,29 @@
         </section>
 
         <section id="faq">
-            <h2>Perguntas Frequentes (FAQ)</h2>
-            <p>Encontre respostas para as perguntas mais comuns dos nossos colaboradores:</p>
-            <ul>
-                <li><h3>Qual o limite aceitável para um sinal óptico?</h3> <p>-27. Passando disso já é necessário validar para uma correção de sinal.</p></li>
-                <li><h3>Qual o tempo limite para aguardar interação no huggy?</h3> <p>Até 30 minutos. Dependendo da demanda, esse tempo de espera pode cair para dar maior vazão aos atendimentos.</p></li>
-                <li><h3>Onde encontro atualização para um modelo de roteador específico?</h3> <p>No site da fabricante, ou para facilitar, acesse "gbsmodelos.free.nf".</p></li>
-                <li><h3>O que fazer quando o roteador do cliente está travado após tentar o reset?</h3> <p>Validar com o N2 e verificar se o cliente tem renovação recente, caso não, aproveite o ensejo para negociar um novo roteador para o cliente (venda ou renovação).</p></li>
-            </ul>
-        </section>
-
+            <h2>❓ Perguntas Frequentes (FAQ)</h2>
+            <p>Aqui você encontra respostas para as dúvidas mais comuns dos nossos colaboradores:</p>
+        
+            <div class="faq-item">
+                <h3>📡 Qual o limite aceitável para um sinal óptico?</h3>
+                <p>O limite aceitável é de -27 dBm. Se o sinal estiver abaixo desse valor, é necessário solicitar uma verificação para correção.</p>
+            </div>
+        
+            <div class="faq-item">
+                <h3>⌛ Qual o tempo limite para aguardar interação no Huggy?</h3>
+                <p>O tempo máximo de espera é de até 30 minutos. No entanto, em períodos de alta demanda, esse tempo pode ser reduzido para agilizar os atendimentos.</p>
+            </div>
+        
+            <div class="faq-item">
+                <h3>🔄 Onde encontro atualizações para um modelo específico de roteador?</h3>
+                <p>Você pode encontrar as atualizações no site do fabricante. Para facilitar, acesse <a href="http://gbsmodelos.free.nf" target="_blank">gbsmodelos.free.nf</a>.</p>
+            </div>
+        
+            <div class="faq-item">
+                <h3>🔧 O que fazer quando o roteador do cliente está travado após tentar o reset?</h3>
+                <p>Valide a situação com o time de Nível 2 (N2). Caso o cliente não tenha renovado recentemente, aproveite para sugerir uma negociação para um novo roteador, seja por venda ou renovação de contrato.</p>
+            </div>
+        </section>        
 
         <!-- Popups dos Protocolos e Departamentos -->
         <div id="popup-protocolo1" class="popup">
@@ -644,55 +1039,82 @@
 
         <!-- Popups dos Departamentos -->
         <div id="popup-n1" class="popup">
-            <h3>Atendimento Nível 1</h3>
-            <p>Esse departamento é de suma importância para a empresa, pois é ele o responsável pelo primeiro contato “cliente-empresa” . É no N1 que encontramos os operadores de telemarketing, que são os colaboradores responsáveis por atender, tirar dúvidas, resolver problemas, gerar e encaminhar protocolos de atendimentos, etc. Como dito anteriormente, independente do departamento que o colaborador for designado, se torna indispensável a passagem pelo N1, pois esse setor proporciona uma experiência nos processos e demais rotinas da empresa que nenhum outro dá</p>
+            <h3>Atendimento Nível 1 (N1)</h3>
+            <p>O departamento de Atendimento Nível 1 (N1) é o ponto de entrada para a maioria dos colaboradores. Ele é responsável pelo primeiro contato “cliente-empresa”, o que o torna uma parte essencial da operação. Os operadores de telemarketing que trabalham no N1 realizam uma série de atividades importantes, como atendimento de dúvidas, resolução de problemas simples, registro de protocolos, e direcionamento de solicitações para outros setores, caso necessário. O N1 é fundamental para que os colaboradores adquiram experiência com os processos da empresa, preparando-os para lidar com situações mais complexas em outros departamentos.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+        
         <div id="popup-n2" class="popup">
-            <h3>Suporte técnico interno – N2</h3>
-            <p>Como seu nome sugere, este departamento é responsável por solucionar problemas de conectividade de forma remota em contato telefônico com o cliente, como: sem conexão, internet lenta, alterações nos roteadores, equipamentos do cliente, e demais solicitações referentes à conexão. Este departamento também trabalha auxiliando o N1 em validações, notificações de parada (rompimento ou falha) e tudo o que abrange a rede do cliente. O diferencial desse departamento é que geralmente o contato acontece no mesmo dia, dependendo da demanda, o que reduz o tempo de espera do cliente, proporcionando mais satisfação.</p>
+            <h3>Suporte Técnico Interno – Nível 2 (N2)</h3>
+            <p>O Suporte Técnico Interno (N2) é responsável por solucionar problemas técnicos de conectividade de forma remota. Os técnicos deste setor lidam com questões como falta de conexão, lentidão na internet, configurações de roteadores e equipamentos dos clientes. Além disso, o N2 dá suporte ao N1 com validações técnicas e lida com notificações de falhas de rede. O diferencial deste departamento é a capacidade de resolver problemas no mesmo dia, agilizando o atendimento e proporcionando maior satisfação ao cliente.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+        
         <div id="popup-comercial" class="popup">
-            <h3>Financeiro</h3>
-            <p>O departamento Financeiro é responsável pela emissão de faturas, recebimentos e gestão de inadimplência.</p>
+            <h3>Comercial</h3>
+            <p>O departamento comercial (CRM) é responsável por novas adesões, promoções, pós venda, Marketing e redes sociais da empresa.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+        
         <div id="popup-financeiro" class="popup">
             <h3>Faturamento</h3>
-            <p>Este departamento da empresa, é responsável pelas solicitações financeiras do cliente, como por exemplo: lançamento de faturas, análise e resolução de problemas inerentes ao pagamento de mensalidades, taxas e outros valores, alteração de plano, reativação, cancelamento e suspensão de cada contrato. O faturamento também auxilia na auditoria de alguns processos e também faz parte do N1, trabalhando em conjunto para solucionar problemas, e atender as solicitações financeiras apresentadas por cada cliente.</p>
+            <p>O setor de Faturamento é responsável por diversas operações financeiras relacionadas aos clientes. Entre suas atividades, destacam-se o lançamento de faturas, análise de pagamentos, resolução de problemas com mensalidades, mudanças de plano, reativações, cancelamentos e suspensões de contratos. Este departamento também participa de auditorias internas para garantir que todos os processos financeiros sejam conduzidos de forma precisa. Além disso, o Faturamento atua em conjunto com o N1 para resolver questões financeiras apresentadas pelos clientes.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+        
         <div id="popup-negociação" class="popup">
             <h3>Negociação</h3>
-            <p>Departamento responsável por negociar com clientes inadimplentes, realizar contatos e notificações de cobrança via telefone, e-mail ou WhatsApp, recuperar equipamentos em comodato e negativação dos débitos. O processo de negociação pode variar dependendo do caso de cada cliente.</p>
+            <p>O departamento de Negociação tem a função de lidar com clientes inadimplentes, realizando contatos para cobrança via telefone, e-mail ou WhatsApp. Além de negociar dívidas, este setor também é responsável pela recuperação de equipamentos em comodato e pela negativação de débitos quando necessário. O processo de negociação é adaptado para cada cliente, com o objetivo de alcançar uma resolução satisfatória para ambas as partes.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+        
         <div id="popup-pj" class="popup">
-            <h3>Atendimento Pj e N3</h3>
-            <p>Este setor cuida de todas as mesmas solicitações do N1, com a diferença é que são apenas solicitações que são feitas por clientes com planos comerciais, sejam em CPF ou CNPJ (maioria)</p>
-            <p>O N3 é responsável por solucionar problemas de conectividade (igualmente o N2) de forma remota, mas somente voltado para conexões de clientes comerciais e links dedicados</p>
+            <h3>Atendimento PJ e Nível 3 (N3)</h3>
+            <p>O Atendimento PJ cuida das solicitações feitas por clientes com planos comerciais, tanto em CPF quanto em CNPJ. O Nível 3 (N3) é responsável por resolver problemas de conectividade de forma remota, assim como o N2, mas voltado exclusivamente para clientes comerciais e links dedicados. O atendimento a esses clientes requer um conhecimento mais especializado devido à complexidade das soluções envolvidas.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+        
         <div id="popup-retenção" class="popup">
             <h3>Retenção e Ouvidoria</h3>
-            <p>Setor que cuida dos processos de reversão e efetivação de solicitações de cancelamento, também cuida da análise e envio dos termos referentes as solicitações contratuais. Outra função deste departamento, é a ouvidoria e solicitações do Procon e Anatel.</p>
+            <p>O setor de Retenção e Ouvidoria é especializado na reversão de solicitações de cancelamento e na análise de termos contratuais. Além disso, este departamento cuida das interações com órgãos como Procon e Anatel, garantindo que as demandas dos clientes sejam atendidas de acordo com as normas legais. A Retenção é responsável por manter os clientes satisfeitos e evitar cancelamentos, enquanto a Ouvidoria atua como canal para a resolução de queixas mais complexas.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+        
         <div id="popup-logi" class="popup">
             <h3>Logística</h3>
             <img src="https://i.ibb.co/0hYWvwg/Screenshot-4.png" alt="Screenshot-4" height="550">
-            <p>Setor que agenda e organiza as ordens de serviço (O.S) de cada localidade ou região.</p>
+            <p>O setor de Logística é responsável pelo agendamento e organização das Ordens de Serviço (O.S) nas diferentes localidades ou regiões atendidas pela empresa. Esse departamento assegura que os técnicos em campo estejam devidamente alocados para realizar as visitas e reparos de acordo com a demanda de cada área, otimizando os processos e reduzindo o tempo de resposta.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+        
         <div id="popup-pres" class="popup">
-            <h3>Presencial</h3>
-            <p>Setor presente em todas as unidades da empresa espalhadas pelo estado, sendo o departamento de atendimento de forma presencial na frente de loja</p>
+            <h3>Atendimento Presencial</h3>
+            <p>O Atendimento Presencial é realizado nas unidades físicas da empresa espalhadas pelo estado. Este departamento lida diretamente com os clientes em lojas, oferecendo um suporte mais próximo e humanizado. Seja para consultas, suporte técnico ou questões financeiras, o Atendimento Presencial garante que os clientes recebam a assistência necessária de forma imediata.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+        
+        <div id="popup-infra" class="popup">
+            <h3>Infraestrutura</h3>
+            <p>O setor de Infraestrutura é responsável pela manutenção, instalação e ampliação da infraestrutura de rede da empresa. Eles garantem que a rede esteja operando de forma eficiente e confiável, minimizando interrupções e otimizando a conectividade para todos os clientes. O trabalho desse departamento é fundamental para a operação contínua e segura da rede de telecomunicações.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>        
 
-        <!-- Script -->
         <script>
+            function copiarTexto(texto) {
+            const areaDeTexto = document.createElement('textarea');
+            areaDeTexto.value = texto;
+
+            document.body.appendChild(areaDeTexto);
+
+            areaDeTexto.select();
+            areaDeTexto.setSelectionRange(0, 99999);
+
+            document.execCommand('copy');
+
+            document.body.removeChild(areaDeTexto);
+
+            alert('Seu texto foi copiado com sucesso!');
+        }
             function showSection(sectionId) {
                 var sections = document.querySelectorAll('section');
                 sections.forEach(function(section) {
@@ -701,21 +1123,34 @@
                 var sectionToShow = document.getElementById(sectionId);
                 sectionToShow.classList.add('active');
             }
-
+        
             function showPopup(id) {
                 var popup = document.getElementById('popup-' + id);
                 popup.classList.add('active');
             }
-
+        
             function closePopup() {
                 var popups = document.querySelectorAll('.popup');
                 popups.forEach(function(popup) {
                     popup.classList.remove('active');
                 });
             }
-
+        
+            function filtrarProtocolos() {
+                let input = document.getElementById('pesquisaProtocolo');
+                let filtro = input.value.toLowerCase();
+                let protocolos = document.querySelectorAll('#protocolos .process-column button');
+        
+                protocolos.forEach(function(protocolo) {
+                    let texto = protocolo.textContent || protocolo.innerText;
+                    if (texto.toLowerCase().indexOf(filtro) > -1) {
+                        protocolo.style.display = "";
+                    } else {
+                        protocolo.style.display = "none";
+                    }
+                });
+            }
+        
             showSection('introducao');
         </script>
-    </div>
-</body>
-</html>
+        
