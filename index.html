@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -388,133 +386,112 @@
       padding: 25px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.2em;
+        border-radius: 8px;
+        }
+        input {
+        width: calc(90% - 20px);
+        padding: 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+        font-size: 1.2em;
+        border-radius: 8px;
+        }
+        button {
+        background-color: #ff7801;
+        color: white;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.5s;
+        font-size: 1.5em;
+        width: 100%;
+        }
+        button:hover {
+        background-color: #2ad300;
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
+        }
+        #resultado {
+        margin-top: 50px;
+        font-size: 1.5em;
+        padding: 20px;
+        background-color: rgba(17, 123, 209, 0.827);
+        color: white;
+        border-radius: 4px;
+        display: none;
+        transition: font-size 0.3s;
+        border-radius: 8px;
+        text-align: center;
+        }
+        
+        #resultado button {
+        padding: 15px 5px;
+        font-size: 1em;
+        width: 80%
     }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 1.2em;
-      border-radius: 8px;
-    }
-    input {
-      width: calc(90% - 20px);
-      padding: 10px;
-      margin: 5px 0;
-      box-sizing: border-box;
-      font-size: 1.2em;
-      border-radius: 8px;
-    }
-    button {
-      background-color: #ff7801;
-      color: white;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.5s;
-      font-size: 1.5em;
-      width: 100%;
-    }
-    button:hover {
-      background-color: #2ad300;
-      transform: scale(1.05);
-      transition: transform 0.3s ease-in-out;
-    }
-    #resultado {
-      margin-top: 50px;
-      font-size: 1.5em;
-      padding: 20px;
-      background-color: rgba(17, 123, 209, 0.827);
-      color: white;
-      border-radius: 4px;
-      display: none;
-      transition: font-size 0.3s;
-      border-radius: 8px;
-      text-align: center;
-    }
-    
-    #resultado button {
-    padding: 15px 5px;
-    font-size: 1em;
-    width: 80%
-  }
     
     footer {
       margin-top: 20px;
     }
 
+    .calc-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .input-group {
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input[type="text"], input[type="number"], input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .btn-calculate {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .btn-calculate:hover {
+        background-color: #0056b3;
+    }
     .calculators-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            width: 90%;
-        }
-
-        .calculator {
-            background-color: rgba(16, 111, 219, 0.821);
-            padding: 30px;
-            border-radius: 10px;
-            width: 350px;
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        input {
-    margin-bottom: 10px;
-    padding: 15px;
-    background-color: #ffffff;
-    color: rgba(16, 111, 219, 0.821);
-    border: none;
-    border-radius: 8px;
-    width: 60%;
-    box-sizing: border-box
-}
-
-        button {
-    padding: 15px;
-    cursor: pointer;
-    background-color: #ffa500;
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.5s ease;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-button:hover {
-    background-color: #ff8c008f;
-    transform: scale(1.05);
-}
-
-
-        #resultado-prePago,
-        #resultado-posPago {
-            margin-top: 20px;
-            color: #ffffff;
-            background-color: rgba(16, 84, 162, 0.821);
-            padding: 20px;
-            border-radius: 15px;
-        }
-
-        #resultado-prePago p,
-        #resultado-posPago p {
-            margin: 5px 0;
-        }
-
-        #resultado-prePago div,
-        #resultado-posPago div {
-            margin-top: 10px;
-        }
-
-        #resultado-prePago div p,
-        #resultado-posPago div p {
-            margin: 0;
-        }
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .calculator {
+        flex: 1;
+        background-color: #e9ecef;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    .pre-pago-title, .pos-pago-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 
         /* Estilo responsivo para dispositivos móveis */
         @media (max-width: 768px) {
@@ -563,7 +540,7 @@ button:hover {
                 <li><a href="#" onclick="showSection('calc')"><strong>🧮Calculadoras</strong></a></li>
                 <li><a href="#" onclick="showSection('faq')"><strong>❓Perguntas Frequentes</strong></a></li>
                 <h4>Feito por Rodrigo S.⚡</h4>
-                <h4>Versão 1.7💬</h4>
+                <h4>Versão 1.7.1💬</h4>
             </ul>
         </nav>
 
@@ -584,73 +561,101 @@ button:hover {
         </section>
 
         <section id="calc">
-            <div>
-                <h2>🧮Calculadoras</h2>
+            <div class="calc-container">
+                <h2>🧮 Calculadoras</h2>
+                
+                <!-- Calculadora de Multa Rescisória -->
                 <h3>Calculadora de Multa Rescisória</h3>
-                <form id="calculadoraForm">
-                    <label for="beneficios">Valor Total dos Benefícios:</label>
-                    <input type="text" id="beneficios" name="beneficios" required oninput="formatarReal(this)">
-                
-                    <label for="totalFidelidade">Total de Meses de Fidelidade:</label>
-                    <input type="number" id="totalFidelidade" name="totalFidelidade" value="12" readonly>
-                
-                    <label for="mesesRestantes">Meses de Fidelidade Restantes:</label>
-                    <input type="number" id="mesesRestantes" name="mesesRestantes" required min="1" max="12">
-                
-                    <button type="button" onclick="calcularMulta()">Calcular Multa</button>
-                  </form>
-                
-                  <div id="resultado"></div>
-                
-                  <h3>Calculadora de Alteração de Vencimento</h3>
-                  <div class="calculators-container">
+                <form id="calculadoraForm" onsubmit="event.preventDefault(); calcularMulta();">
+                    <div class="input-group">
+                        <label for="beneficios">Valor Total dos Benefícios:</label>
+                        <input type="text" id="beneficios" name="beneficios" required oninput="formatarReal(this)">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="totalFidelidade">Total de Meses de Fidelidade:</label>
+                        <input type="number" id="totalFidelidade" name="totalFidelidade" value="12" readonly>
+                    </div>
+        
+                    <div class="input-group">
+                        <label for="mesesRestantes">Meses de Fidelidade Restantes:</label>
+                        <input type="number" id="mesesRestantes" name="mesesRestantes" required min="1" max="12">
+                    </div>
+        
+                    <button type="submit" class="btn-calculate">Calcular Multa</button>
+                </form>
+                <div id="resultado"></div>
+        
+                <!-- Calculadora de Alteração de Vencimento -->
+                <h3>Calculadora de Alteração de Vencimento</h3>
+                <div class="calculators-container">
+                    
+                    <!-- Pré-Pago -->
                     <div class="calculator">
                         <div class="pre-pago-title">PRÉ PAGO</div>
-            
-                        <label for="vencAtual">Vencimento Atual:</label>
-                        <input type="number" id="vencAtual" placeholder="Dia do vencimento atual" min="1" max="31">
-            
-                        <label for="vencNovo">Vencimento Novo:</label>
-                        <input type="number" id="vencNovo" placeholder="Dia do vencimento novo" min="1" max="31">
-            
-                        <label for="ultimoVenc">Último Vencimento:</label>
-                        <input type="date" id="ultimoVenc">
-            
-                        <label for="proxVenc">Próximo Vencimento:</label>
-                        <input type="date" id="proxVenc">
-            
-                        <label for="valorPlano">Valor do Plano:</label>
-                        <input type="text" id="valorPlano" placeholder="Valor do plano">
-            
-                        <button onclick="calcular('prePago')">Calcular!</button>
-            
+        
+                        <div class="input-group">
+                            <label for="vencAtual">Vencimento Atual:</label>
+                            <input type="number" id="vencAtual" placeholder="Dia do vencimento atual" min="1" max="31" required>
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="vencNovo">Vencimento Novo:</label>
+                            <input type="number" id="vencNovo" placeholder="Dia do vencimento novo" min="1" max="31" required>
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="ultimoVenc">Último Vencimento:</label>
+                            <input type="date" id="ultimoVenc" required>
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="proxVenc">Próximo Vencimento:</label>
+                            <input type="date" id="proxVenc" required>
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="valorPlano">Valor do Plano:</label>
+                            <input type="text" id="valorPlano" placeholder="Valor do plano" required>
+                        </div>
+        
+                        <button class="btn-calculate" onclick="calcular('prePago')">Calcular!</button>
                         <div id="resultado-prePago"></div>
                     </div>
-            
+        
+                    <!-- Pós-Pago -->
                     <div class="calculator">
                         <div class="pos-pago-title">PÓS PAGO</div>
-            
-                        <label for="vencAtualPos">Vencimento Atual:</label>
-                        <input type="number" id="vencAtualPos" placeholder="Dia do vencimento atual" min="1" max="31">
-            
-                        <label for="vencNovoPos">Vencimento Novo:</label>
-                        <input type="number" id="vencNovoPos" placeholder="Dia do vencimento novo" min="1" max="31">
-            
-                        <label for="ultimoVencPos">Último Vencimento:</label>
-                        <input type="date" id="ultimoVencPos">
-            
-                        <label for="proxVencPos">Próximo Vencimento:</label>
-                        <input type="date" id="proxVencPos">
-            
-                        <label for="valorPlanoPos">Valor do Plano:</label>
-                        <input type="text" id="valorPlanoPos" placeholder="Valor do plano">
-            
-                        <button onclick="calcular('posPago')">Calcular!</button>
-            
+        
+                        <div class="input-group">
+                            <label for="vencAtualPos">Vencimento Atual:</label>
+                            <input type="number" id="vencAtualPos" placeholder="Dia do vencimento atual" min="1" max="31" required>
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="vencNovoPos">Vencimento Novo:</label>
+                            <input type="number" id="vencNovoPos" placeholder="Dia do vencimento novo" min="1" max="31" required>
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="ultimoVencPos">Último Vencimento:</label>
+                            <input type="date" id="ultimoVencPos" required>
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="proxVencPos">Próximo Vencimento:</label>
+                            <input type="date" id="proxVencPos" required>
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="valorPlanoPos">Valor do Plano:</label>
+                            <input type="text" id="valorPlanoPos" placeholder="Valor do plano" required>
+                        </div>
+        
+                        <button class="btn-calculate" onclick="calcular('posPago')">Calcular!</button>
                         <div id="resultado-posPago"></div>
                     </div>
-                </div>            
-
+                </div>
             </div>
         </section>
         
@@ -767,14 +772,52 @@ button:hover {
         </section>
         
         <section id="materiais">
-            <div>
-                <h2>Materiais de Apoio</h2>
-                <h1><strong>Alteração de titularidade</strong></h1>
-                <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkWio_C0mo14Ii8oK?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="no"></iframe>
-                <h1><strong>Made4it</strong></h1>
-                <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkXEnW3wQ2KL9Kg4m?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="no"></iframe>
-            </div>
-        </section>
+    <div>
+        <h2>Materiais de Apoio</h2>
+
+        <div class="material">
+            <h3><strong>Tutorial de Troca de Titularidade</strong></h3>
+            <p>Este tutorial fornece orientações detalhadas sobre como realizar a troca de titularidade de serviços.</p>
+            <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkWio_C0mo14Ii8oK?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+        </div>
+
+        <div class="material">
+            <h3><strong>Made4IT - Guia Básico</strong></h3>
+            <p>Este material explica o funcionamento do Made4IT, uma plataforma que gerencia as CPEs e oferece informações importantes para o atendimento técnico.</p>
+            <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkXEnW3wQ2KL9Kg4m?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+        </div>
+    </div>
+
+    <style>
+        #materiais {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .material {
+            margin-bottom: 40px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #000000;
+        }
+        p {
+            font-size: 1.1em;
+            color: #000000;
+        }
+        iframe {
+            width: 100%;
+            max-width: 950px;
+            height: 500px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</section>
 
         <section id="protocolos">
             <h2>Protocolos e Processos</h2>
@@ -1071,7 +1114,7 @@ button:hover {
         
             <div class="faq-item">
                 <h3>📡 Qual o limite aceitável para um sinal óptico?</h3>
-                <p>O limite aceitável é de -27 dBm. Se o sinal estiver acima desse valor, é necessário solicitar uma verificação para correção.</p>
+                <p>O limite aceitável é de -27 dBm. Se o sinal estiver abaixo desse valor, é necessário solicitar uma verificação para correção.</p>
             </div>
         
             <div class="faq-item">
