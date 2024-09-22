@@ -144,6 +144,19 @@
         .close-btn:hover {
             background-color: #c9302c;
         }
+        .close-btn-rout {
+            background-color: #800400;
+            color: white;
+            width: 100%;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .close-btn-rout:hover {
+            background-color: #ffffff;
+        }
         .catalogo {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -410,10 +423,11 @@
         cursor: pointer;
         transition: background-color 0.3s, transform 0.5s;
         font-size: 1.5em;
+        object-position: center;
         width: 100%;
         }
         button:hover {
-        background-color: #2ad300;
+        background-color: #0096c4;
         transform: scale(1.05);
         transition: transform 0.3s ease-in-out;
         }
@@ -492,6 +506,58 @@
         font-weight: bold;
         margin-bottom: 10px;
     }
+    .accordion-button {
+        align-content: center;
+        width: 100%;
+        padding: 10px;
+        background-color: #00509e;
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        transition: 0.4s;
+        margin-bottom: 5px;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 250%;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 5% auto;
+        padding: 80px;
+        border: 1px solid #888;
+        width: 70%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .popup iframe {
+    width: 1190vw; /* O iframe ocupará 90% da largura da tela */
+    height: 78vh; /* O iframe ocupará 80% da altura da tela */
+    border: none; /* Remove a borda do iframe */
+}
 
         /* Estilo responsivo para dispositivos móveis */
         @media (max-width: 768px) {
@@ -525,7 +591,7 @@
     <img src="https://www.gbsn.com.br/gbs/assets/images/loader/logo.png" alt="Logo" style="height: 50px; vertical-align: middle;">
     Wiki do Call Center
 </header>
-
+    <!-- Seções -->
     <div id="container">
         <nav>
             <ul>
@@ -535,15 +601,16 @@
                 <li><a href="#" onclick="showSection('ferramentas')"><strong>🔧Ferramentas</strong></a></li>
                 <li><a href="#" onclick="showSection('conexao')"><strong>📡Roteadores</strong></a></li>
                 <li><a href="#" onclick="showSection('materiais')"><strong>📑Materiais</strong></a></li>
+                <li><a href="#" onclick="showSection('rev')"><strong>🔁Reversão</strong></a></li>
                 <li><a href="#" onclick="showSection('textos')"><strong>📃Textos Padrão</strong></a></li>
                 <li><a href="#" onclick="showSection('cursos')"><strong>📚Cursos</strong></a></li>
                 <li><a href="#" onclick="showSection('calc')"><strong>🧮Calculadoras</strong></a></li>
                 <li><a href="#" onclick="showSection('faq')"><strong>❓Perguntas Frequentes</strong></a></li>
                 <h4>Feito por Rodrigo S.⚡</h4>
-                <h4>Versão 1.7.1💬</h4>
             </ul>
         </nav>
 
+        <!-- Introdução -->
         <section id="introducao">
             <div>
                 <h2>Bem-vindo à Wiki do Call Center!</h2>
@@ -557,6 +624,43 @@
                     <li><strong>Ferramentas que irão otimizar seu trabalho no dia a dia</strong></li>
                 </ul>
                 <p><strong>Estamos juntos nessa jornada de crescimento e qualidade no atendimento!</strong></p>
+            </div>
+        </section>
+        
+        <!-- Cancelamentos -->
+        <section id="rev">
+            <h2>Scripts para reversão de Cancelamentos</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-button" data-pdf="https://1drv.ms/b/s!AsFT2-Y-k77wkXrCh_mf14QSr7E1?embed=1&em=2">Concorrência</button>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button" data-pdf="https://1drv.ms/b/s!AsFT2-Y-k77wkXv8hDsd-SNLQ7uu?embed=1&em=2">Dificuldade Financeira</button>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button" data-pdf="https://1drv.ms/b/s!AsFT2-Y-k77wkXx6kyIxKVWlqalm?embed=1&em=2">Falecimento</button>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button" data-pdf="https://1drv.ms/b/s!AsFT2-Y-k77wkX2HVTbIYSZh7XyC?embed=1&em=2">Insatisfação com a Conexão</button>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button" data-pdf="https://1drv.ms/b/s!AsFT2-Y-k77wkX4Ae92KZMKft75r?embed=1&em=2">Insatisfação com o Atendimento</button>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button" data-pdf="https://1drv.ms/b/s!AsFT2-Y-k77wkX_v8gD3JNGn960l?embed=1&em=2">Mudança de Endereço</button>
+                </div>
+            </div>
+        
+            <!-- Modal for PDF -->
+            <div id="pdfModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Reversão de Cancelamentos🔄</p>
+                    <iframe id="pdfViewer" src="" width="150%" height="800px"></iframe>
+                    <p>-Ajustar o zoom -----------------------------------------------------------------------------------------------------⬆</p>
+                    <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
+                    <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
+                </div>
             </div>
         </section>
 
@@ -659,6 +763,7 @@
             </div>
         </section>
         
+        <!-- Textos Padrão -->
         <section id="textos">
             <h2>Textos Padrão</h2>
             <div class="opcoes">
@@ -771,6 +876,7 @@
             </div>
         </section>
         
+        <!-- Materiais de apoio -->
         <section id="materiais">
     <div>
         <h2>Materiais de Apoio</h2>
@@ -779,12 +885,18 @@
             <h3><strong>Tutorial de Troca de Titularidade</strong></h3>
             <p>Este tutorial fornece orientações detalhadas sobre como realizar a troca de titularidade de serviços.</p>
             <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkWio_C0mo14Ii8oK?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+            <p>-Ajustar o zoom -----------------------------------------------------------------------------------------------------⬆</p>
+                    <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
+                    <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
         </div>
 
         <div class="material">
             <h3><strong>Made4IT - Guia Básico</strong></h3>
             <p>Este material explica o funcionamento do Made4IT, uma plataforma que gerencia as CPEs e oferece informações importantes para o atendimento técnico.</p>
             <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkXEnW3wQ2KL9Kg4m?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+            <p>-Ajustar o zoom -----------------------------------------------------------------------------------------------------⬆</p>
+                    <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
+                    <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
         </div>
     </div>
 
@@ -818,7 +930,7 @@
         }
     </style>
 </section>
-
+        <!-- Protocolos e Processos -->
         <section id="protocolos">
             <h2>Protocolos e Processos</h2>
             <input type="text" id="pesquisaProtocolo" placeholder="Buscar protocolo..." onkeyup="filtrarProtocolos()">
@@ -847,6 +959,7 @@
                 <button onclick="showPopup('protocolo22')"><strong>Protocolo 22: Nota Fiscal</strong></button>
         </section>
 
+        <!-- Departamentos -->
         <section id="departamentos">
             <h2>Departamentos</h2>
             <div class="department-column">
@@ -863,8 +976,10 @@
             </div>
         </section>
 
+        <!-- Roteadores -->
         <section id="conexao">
             <h2>Conexão</h2>
+            <button onclick="showPopup('router')">Simulador de Roteador</button>
             <div class="catalogo">
                 <div class="roteador">
                     <a href="https://www.youtube.com/watch?v=PFn0GK8C6Mk&t=22s&pp=ygURcnggMTUwMCBpbnRlbGJyYXM%3D" target="_blank">
@@ -975,10 +1090,9 @@
                         <p>Portas: Giga</p>
                         <a href="https://forum.intelbras.com.br/viewtopic.php?f=2729&t=77209" target="_blank">Baixar Firmware</a>
                     </div>
-            
         </section>
 
-        
+        <!-- Ferramentas e plataformas -->
         <section id="ferramentas">
             <h2>Ferramentas do Call Center</h2>
             <p>Plataformas de uso no dia a dia:</p>
@@ -1025,24 +1139,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>🔄 Alteração de Vencimento</td>
-                        <td>Ferramenta para ajustar a data de vencimento da fatura.</td>
-                        <td><a href="http://gbsvencimento.free.nf" target="_blank">Acessar Site</a></td>
-                    </tr>
-                    <tr>
-                        <td>⚖️ Multa Rescisória</td>
-                        <td>Calculadora de multas por cancelamento de contrato.</td>
-                        <td><a href="http://gbsmulta.free.nf" target="_blank">Acessar Site</a></td>
-                    </tr>
-                    <tr>
                         <td>📡 Simulador de Roteador</td>
                         <td>Ferramenta para simular configurações de roteadores.</td>
-                        <td><a href="http://gbsroteador.free.nf" target="_blank">Acessar Site</a></td>
+                        <td><a href="https://gbswiki.github.io/router/" target="_blank">Acessar Site</a></td>
                     </tr>
                 </tbody>
             </table>
         
-            <p><strong>Obs:</strong> Caso não funcione, apague o "https://" do endereço web no navegador.</p>
         </section>        
 
         <section id="cursos">
@@ -1131,7 +1234,15 @@
                 <h3>🔧 O que fazer quando o roteador do cliente está travado após tentar o reset?</h3>
                 <p>Valide a situação com o time de Nível 2 (N2). Caso o cliente não tenha renovado recentemente, aproveite para sugerir uma negociação para um novo roteador, seja por venda ou renovação de contrato.</p>
             </div>
-        </section>        
+        </section>
+        
+        <!-- Popups do Roteador -->
+<div id="popup-router" class="popup">
+    <h3>Simulador de roteador📲</h3>
+    <iframe src="https://gbswiki.github.io/router/" frameborder="0" scrolling="auto"></iframe>
+    <button class="close-btn-rout" onclick="closePopup()">Fechar</button>
+</div>
+
 
         <!-- Popups dos Protocolos e Departamentos -->
         <div id="popup-protocolo1" class="popup">
@@ -1340,8 +1451,8 @@
             <h3>Infraestrutura</h3>
             <p>O setor de Infraestrutura é responsável pela manutenção, instalação e ampliação da infraestrutura de rede da empresa. Eles garantem que a rede esteja operando de forma eficiente e confiável, minimizando interrupções e otimizando a conectividade para todos os clientes. O trabalho desse departamento é fundamental para a operação contínua e segura da rede de telecomunicações.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
-        </div>        
-
+        </div>
+            
         <script>
             function copiarTexto(texto) {
             const areaDeTexto = document.createElement('textarea');
@@ -1512,6 +1623,27 @@
                     }
                 });
             }
+            document.querySelectorAll('.accordion-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const pdfFile = this.getAttribute('data-pdf');
+            const modal = document.getElementById("pdfModal");
+            const pdfViewer = document.getElementById("pdfViewer");
+
+            pdfViewer.src = pdfFile;
+            modal.style.display = "block";
+        });
+    });
+
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById("pdfModal").style.display = "none";
+    });
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("pdfModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
         
             showSection('introducao');
         </script>
