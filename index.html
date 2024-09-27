@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -292,7 +293,7 @@
             border-collapse: collapse;
             margin: 20px 0;
             font-size: 1em;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Consolas', sans-serif;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -871,55 +872,69 @@
 <section id="materiais">
     <div>
         <h2>Documentos de Apoio</h2>
-
+<!-- Caixa de Pesquisa -->
+<input type="text" id="searchBox" onkeyup="searchMaterials()" placeholder="Pesquisar por material...">
         <div class="material">
             <h3><strong>Tutorial de Troca de Titularidade</strong></h3>
             <p>Este tutorial fornece orientações detalhadas sobre como realizar a troca de titularidade de serviços.</p>
             <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkWio_C0mo14Ii8oK?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
             <p>-Ajustar o zoom -----------------------------------------------------------------------------------------------------⬆</p>
-                    <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
-                    <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
+            <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
+            <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
         </div>
 
         <div class="material">
             <h3><strong>Made4IT - Guia Básico</strong></h3>
             <p>Este material explica o funcionamento do Made4IT, uma plataforma que gerencia as CPEs e oferece informações importantes para o atendimento técnico.</p>
-            <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkXEnW3wQ2KL9Kg4m?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+            <iframe src="https://www.canva.com/design/DAGD7BpYcco/5NoiLKglKlzAcQHmGdbAwQ/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
             <p>-Ajustar o zoom -----------------------------------------------------------------------------------------------------⬆</p>
-                    <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
-                    <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
+            <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
+            <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
+        </div>
+        <div class="material">
+            <h3><strong>Renovação Contratual - CRM</strong></h3>
+            <p>Este material criado por Leandro Lira nos mostra como proceder nos processos de renovação contratual de modo eficaz.</p>
+            <iframe src="https://www.canva.com/design/DAGR-4ndl8o/-N_j8XI5LvJUIWBoVopg2g/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
         </div>
     </div>
+</section>
 
-    <style>
-        #materiais {
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .material {
-            margin-bottom: 40px;
-        }
-        h3 {
-            font-size: 1.5em;
-            color: #000000;
-        }
-        p {
-            font-size: 1.1em;
-            color: #000000;
-        }
-        iframe {
-            width: 100%;
-            max-width: 950px;
-            height: 500px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-        }
-    </style>
+<!-- Estilos -->
+<style>
+    #materiais {
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+    h2 {
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    .material {
+        margin-bottom: 40px;
+    }
+    h3 {
+        font-size: 1.5em;
+        color: #000000;
+    }
+    p {
+        font-size: 1.1em;
+        color: #000000;
+    }
+    iframe {
+        width: 100%;
+        max-width: 950px;
+        height: 500px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+    }
+    #searchBox {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+</style>
 </section>
         
         <!-- Cancelamentos -->
@@ -1768,6 +1783,22 @@
     var presentationDiv4 = document.getElementById("presentation4");
     presentationDiv4.style.display = (presentationDiv4.style.display === "none") ? "block" : "none";
   }
+  function searchMaterials() {
+        var input, filter, materials, material, h3, i, txtValue;
+        input = document.getElementById("searchBox");
+        filter = input.value.toLowerCase();
+        materials = document.getElementsByClassName("material");
+
+        for (i = 0; i < materials.length; i++) {
+            h3 = materials[i].getElementsByTagName("h3")[0];
+            txtValue = h3.textContent || h3.innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                materials[i].style.display = "";
+            } else {
+                materials[i].style.display = "none";
+            }
+        }
+    }
         
             showSection('introducao');
         </script>
