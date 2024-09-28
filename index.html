@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -562,6 +563,10 @@
         height: 78vh; /* O iframe ocupará 80% da altura da tela */
         border: none; /* Remove a borda do iframe */
     }
+    .popup img {
+    display: block;
+    margin: 0 auto;
+}
 
         /* Estilo responsivo para dispositivos móveis */
         @media (max-width: 768px) {
@@ -882,7 +887,6 @@
             <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
             <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
         </div>
-
         <div class="material">
             <h3><strong>Made4IT - Guia Básico</strong></h3>
             <p>Este material explica o funcionamento do Made4IT, uma plataforma que gerencia as CPEs e oferece informações importantes para o atendimento técnico.</p>
@@ -892,6 +896,16 @@
             <h3><strong>Renovação Contratual - CRM</strong></h3>
             <p>Este material criado por Leandro Lira nos mostra como proceder nos processos de renovação contratual de modo eficaz.</p>
             <iframe src="https://www.canva.com/design/DAGR-4ndl8o/-N_j8XI5LvJUIWBoVopg2g/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+        </div>
+        <div class="material"></div>
+            <h3><strong>Primeiro acesso WATCH</strong></h3>
+            <p>Este material foi criado para ajudar no primeiro acesso á WATCH.</p>
+            <iframe src="https://www.canva.com/design/DAGSDnr1WVg/QOni4QcuMHYVToo9cRpLUQ/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+        </div>
+        <div class="material"></div>
+            <h3><strong>Ativação MAX (WATCH)</strong></h3>
+            <p>Este material foi criado para auxiliar na ativação da MAX.</p>
+            <iframe src="https://www.canva.com/design/DAGSDmOnRjI/kN2yxKFa8s3ofwO7XVHcOA/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
         </div>
     </div>
 </section>
@@ -1502,64 +1516,74 @@
         <!-- Popups dos Departamentos -->
         <div id="popup-n1" class="popup">
             <h3>Atendimento Nível 1 (N1)</h3>
+            <img src="https://plugg.to/wp-content/uploads/elementor/thumbs/ilustracao-personalizar-atendimento-ao-cliente-pjybn548s0exq1vi6jbhc3302tzn9t651azmqjy39c.png" alt="Atendimento Nível 1" height="200">
             <p>O departamento de Atendimento Nível 1 (N1) é o ponto de entrada para a maioria dos colaboradores. Ele é responsável pelo primeiro contato “cliente-empresa”, o que o torna uma parte essencial da operação. Os operadores de telemarketing que trabalham no N1 realizam uma série de atividades importantes, como atendimento de dúvidas, resolução de problemas simples, registro de protocolos, e direcionamento de solicitações para outros setores, caso necessário. O N1 é fundamental para que os colaboradores adquiram experiência com os processos da empresa, preparando-os para lidar com situações mais complexas em outros departamentos.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
-        
+
         <div id="popup-n2" class="popup">
             <h3>Suporte Técnico Interno – Nível 2 (N2)</h3>
+            <img src="https://www.agoraweb.com.br/wp-content/uploads/2017/11/suporte-remoto-avulso.png" alt="Suporte Técnico N2" height="200">
             <p>O Suporte Técnico Interno (N2) é responsável por solucionar problemas técnicos de conectividade de forma remota. Os técnicos deste setor lidam com questões como falta de conexão, lentidão na internet, configurações de roteadores e equipamentos dos clientes. Além disso, o N2 dá suporte ao N1 com validações técnicas e lida com notificações de falhas de rede. O diferencial deste departamento é a capacidade de resolver problemas no mesmo dia, agilizando o atendimento e proporcionando maior satisfação ao cliente.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
-        
+
         <div id="popup-comercial" class="popup">
             <h3>Comercial</h3>
+            <img src="https://edm2.b-cdn.net/blog/wp-content/uploads/2019/10/aa560c85f6f785a9eabfea9a44d2a362.png" alt="Departamento Comercial" height="200">
             <p>O departamento comercial (CRM) é responsável por novas adesões, promoções, pós venda, Marketing e redes sociais da empresa.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
-        
+
         <div id="popup-financeiro" class="popup">
             <h3>Faturamento</h3>
+            <img src="https://victon.com.br/system/noticias/foto_capas/000/000/180/grande/Ativo%201.png?1607112483" alt="Faturamento" height="200">
             <p>O setor de Faturamento é responsável por diversas operações financeiras relacionadas aos clientes. Entre suas atividades, destacam-se o lançamento de faturas, análise de pagamentos, resolução de problemas com mensalidades, mudanças de plano, reativações, cancelamentos e suspensões de contratos. Este departamento também participa de auditorias internas para garantir que todos os processos financeiros sejam conduzidos de forma precisa. Além disso, o Faturamento atua em conjunto com o N1 para resolver questões financeiras apresentadas pelos clientes.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
-        
+
         <div id="popup-negociação" class="popup">
             <h3>Negociação</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/5984/5984712.png" alt="Negociação" height="200">
             <p>O departamento de Negociação tem a função de lidar com clientes inadimplentes, realizando contatos para cobrança via telefone, e-mail ou WhatsApp. Além de negociar dívidas, este setor também é responsável pela recuperação de equipamentos em comodato e pela negativação de débitos quando necessário. O processo de negociação é adaptado para cada cliente, com o objetivo de alcançar uma resolução satisfatória para ambas as partes.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
-        
+
         <div id="popup-pj" class="popup">
             <h3>Atendimento PJ e Nível 3 (N3)</h3>
+            <img src="https://www.unimed.coop.br/site/documents/329659/0/Bot%C3%A3o-DIREITA.png/f3644763-eab7-1af2-c6ad-f57249273150?t=1685460110775&download=true" alt="Atendimento PJ e N3" height="200">
             <p>O Atendimento PJ cuida das solicitações feitas por clientes com planos comerciais, tanto em CPF quanto em CNPJ. O Nível 3 (N3) é responsável por resolver problemas de conectividade de forma remota, assim como o N2, mas voltado exclusivamente para clientes comerciais e links dedicados. O atendimento a esses clientes requer um conhecimento mais especializado devido à complexidade das soluções envolvidas.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
-        
+
         <div id="popup-retenção" class="popup">
             <h3>Retenção e Ouvidoria</h3>
+            <img src="https://www.blip.ai/blog/wp-content/uploads/2021/02/img_retencaodeclientes-300x162.png" alt="Retenção e Ouvidoria" height="200">
             <p>O setor de Retenção e Ouvidoria é especializado na reversão de solicitações de cancelamento e na análise de termos contratuais. Além disso, este departamento cuida das interações com órgãos como Procon e Anatel, garantindo que as demandas dos clientes sejam atendidas de acordo com as normas legais. A Retenção é responsável por manter os clientes satisfeitos e evitar cancelamentos, enquanto a Ouvidoria atua como canal para a resolução de queixas mais complexas.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
-        
+
         <div id="popup-logi" class="popup">
             <h3>Logística</h3>
             <img src="https://i.ibb.co/0hYWvwg/Screenshot-4.png" alt="Screenshot-4" height="550">
             <p>O setor de Logística é responsável pelo agendamento e organização das Ordens de Serviço (O.S) nas diferentes localidades ou regiões atendidas pela empresa. Esse departamento assegura que os técnicos em campo estejam devidamente alocados para realizar as visitas e reparos de acordo com a demanda de cada área, otimizando os processos e reduzindo o tempo de resposta.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
-        
+
         <div id="popup-pres" class="popup">
             <h3>Atendimento Presencial</h3>
+            <img src="https://www.movidesk.com/assets/pt-br/img/lps/bg-sistema-de-atendimento-bg.png" alt="Atendimento Presencial" height="200">
             <p>O Atendimento Presencial é realizado nas unidades físicas da empresa espalhadas pelo estado. Este departamento lida diretamente com os clientes em lojas, oferecendo um suporte mais próximo e humanizado. Seja para consultas, suporte técnico ou questões financeiras, o Atendimento Presencial garante que os clientes recebam a assistência necessária de forma imediata.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
-        
+
         <div id="popup-infra" class="popup">
             <h3>Infraestrutura</h3>
-            <p>O setor de Infraestrutura é responsável pela manutenção, instalação e ampliação da infraestrutura de rede da empresa. Eles garantem que a rede esteja operando de forma eficiente e confiável, minimizando interrupções e otimizando a conectividade para todos os clientes. O trabalho desse departamento é fundamental para a operação contínua e segura da rede de telecomunicações.</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/8654/8654558.png" alt="Infraestrutura" height="200">
+            <p> O setor de Infraestrutura é responsável pela manutenção, instalação e ampliação da infraestrutura de rede da empresa. Eles garantem que a rede esteja operando de forma eficiente e confiável, minimizando interrupções e otimizando a conectividade para todos os clientes. O trabalho desse departamento é fundamental para a operação contínua e segura da rede de telecomunicações.</p>
             <button class="close-btn" onclick="closePopup()">Fechar</button>
         </div>
+
             
         <script>
             function copiarTexto(texto) {
