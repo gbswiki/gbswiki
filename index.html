@@ -563,11 +563,6 @@
         height: 78vh; /* O iframe ocupará 80% da altura da tela */
         border: none; /* Remove a borda do iframe */
     }
-    .popup img {
-    display: block;
-    margin: 0 auto;
-}
-
         /* Estilo responsivo para dispositivos móveis */
         @media (max-width: 768px) {
             #introducao img {
@@ -873,80 +868,70 @@
             </div>
 </section>
 
-<!-- Materiais de apoio -->
-<section id="materiais">
-    <div>
-        <h2>Documentos de Apoio</h2>
-<!-- Caixa de Pesquisa -->
-<input type="text" id="searchBox" onkeyup="searchMaterials()" placeholder="Pesquisar por material...">
-        <div class="material">
-            <h3><strong>Tutorial de Troca de Titularidade</strong></h3>
-            <p>Este tutorial fornece orientações detalhadas sobre como realizar a troca de titularidade de serviços.</p>
-            <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkWio_C0mo14Ii8oK?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
-            <p>-Ajustar o zoom -----------------------------------------------------------------------------------------------------⬆</p>
-            <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
-            <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
-        </div>
-        <div class="material">
-            <h3><strong>Made4IT - Guia Básico</strong></h3>
-            <p>Este material explica o funcionamento do Made4IT, uma plataforma que gerencia as CPEs e oferece informações importantes para o atendimento técnico.</p>
-            <iframe src="https://www.canva.com/design/DAGD7BpYcco/5NoiLKglKlzAcQHmGdbAwQ/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
-        </div>
-        <div class="material">
-            <h3><strong>Renovação Contratual - CRM</strong></h3>
-            <p>Este material criado por Leandro Lira nos mostra como proceder nos processos de renovação contratual de modo eficaz.</p>
-            <iframe src="https://www.canva.com/design/DAGR-4ndl8o/-N_j8XI5LvJUIWBoVopg2g/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
-        </div>
-        <div class="material"></div>
-            <h3><strong>Primeiro acesso WATCH</strong></h3>
-            <p>Este material foi criado para ajudar no primeiro acesso á WATCH.</p>
-            <iframe src="https://www.canva.com/design/DAGSDnr1WVg/QOni4QcuMHYVToo9cRpLUQ/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
-        </div>
-        <div class="material"></div>
-            <h3><strong>Ativação MAX (WATCH)</strong></h3>
-            <p>Este material foi criado para auxiliar na ativação da MAX.</p>
-            <iframe src="https://www.canva.com/design/DAGSDmOnRjI/kN2yxKFa8s3ofwO7XVHcOA/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
-        </div>
-    </div>
-</section>
+        <!-- Materiais de apoio -->
+        <section id="materiais">
+            <div>
+                <h2>Documentos de Apoio</h2>
+        <!-- Caixa de Pesquisa -->
+        <input type="text" id="searchBox" onkeyup="searchMaterials()" placeholder="Pesquisar por material...">
+                <div class="material">
+                    <h3><strong>Tutorial de Troca de Titularidade</strong></h3>
+                    <p>Este tutorial fornece orientações detalhadas sobre como realizar a troca de titularidade de serviços.</p>
+                    <iframe src="https://1drv.ms/b/s!AsFT2-Y-k77wkWio_C0mo14Ii8oK?embed=1&em=2" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+                    <p>-Ajustar o zoom -----------------------------------------------------------------------------------------------------⬆</p>
+                    <p>-Para baixar uma cópia, clique no ícone "📃" na parte debaixo, na direita do PopUp. --------------------------------⬆</p>
+                    <p>-Visualizar em tela cheia ---------------------------------------------------------------------------------------------------------⬆</p>
+                </div>
+                <div class="material">
+                    <h3><strong>Made4IT - Guia Básico</strong></h3>
+                    <p>Este material explica o funcionamento do Made4IT, uma plataforma que gerencia as CPEs e oferece informações importantes para o atendimento técnico.</p>
+                    <iframe src="https://www.canva.com/design/DAGD7BpYcco/5NoiLKglKlzAcQHmGdbAwQ/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+                </div>
+                <div class="material">
+                    <h3><strong>Renovação Contratual - CRM</strong></h3>
+                    <p>Este material criado por Leandro Lira nos mostra como proceder nos processos de renovação contratual de modo eficaz.</p>
+                    <iframe src="https://www.canva.com/design/DAGR-4ndl8o/-N_j8XI5LvJUIWBoVopg2g/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+                </div>
+            </div>
+        </section>
 
-<!-- Estilos -->
-<style>
-    #materiais {
-        padding: 20px;
-        background-color: #f9f9f9;
-    }
-    h2 {
-        text-align: center;
-        font-size: 2em;
-        margin-bottom: 20px;
-    }
-    .material {
-        margin-bottom: 40px;
-    }
-    h3 {
-        font-size: 1.5em;
-        color: #000000;
-    }
-    p {
-        font-size: 1.1em;
-        color: #000000;
-    }
-    iframe {
-        width: 100%;
-        max-width: 950px;
-        height: 500px;
-        margin-top: 10px;
-        border: 1px solid #ddd;
-    }
-    #searchBox {
-        width: 100%;
-        padding: 12px;
-        font-size: 1.2em;
-        margin-bottom: 20px;
-    }
-</style>
-</section>
+        <!-- Estilos -->
+        <style>
+            #materiais {
+                padding: 20px;
+                background-color: #f9f9f9;
+            }
+            h2 {
+                text-align: center;
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            .material {
+                margin-bottom: 40px;
+            }
+            h3 {
+                font-size: 1.5em;
+                color: #000000;
+            }
+            p {
+                font-size: 1.1em;
+                color: #000000;
+            }
+            iframe {
+                width: 100%;
+                max-width: 950px;
+                height: 500px;
+                margin-top: 10px;
+                border: 1px solid #ddd;
+            }
+            #searchBox {
+                width: 100%;
+                padding: 12px;
+                font-size: 1.2em;
+                margin-bottom: 20px;
+            }
+        </style>
+        </section>
         
         <!-- Cancelamentos -->
         <section id="rev">
