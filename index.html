@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki do SAC📶</title>
+    <title>Área do SAC📶</title>
     <link rel="icon" href="https://i.ibb.co/2cJ7gjS/favicon-32x32.png" type="image/png">
     <style>
         body {
@@ -17,7 +17,7 @@
             overflow: hidden;
         }
         header {
-            background: linear-gradient(90deg, #58a9ff, #f37201);
+            background: linear-gradient(90deg, #58a9ff, #fa8723);
             color: white;
             padding: 12px;
             text-align: center;
@@ -65,14 +65,14 @@
         section {
             display: none;
             padding: 20px;
-            background-color: white;
+            background-color: rgb(235, 235, 235);
             flex-grow: 1;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             margin: 20px;
             overflow-y: auto;
             max-height: calc(100vh - 100px); 
             border-radius: 8px;
-            animation: fadeIn 0.8s ease-in-out;
+            animation: fadeIn 0.9s ease-in-out;
         }
         section.active {
             display: block;
@@ -102,7 +102,7 @@
         .process-column, .department-column {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 20px;
         }
         .process-column button, .department-column button {
             background-color: #00509e;
@@ -292,7 +292,7 @@
             border-collapse: collapse;
             margin: 20px 0;
             font-size: 1em;
-            font-family: 'Consolas', sans-serif;
+            font-family: 'Arial', sans-serif;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -308,7 +308,7 @@
         }
 
         table tr:hover {
-            background-color: #2f00ffa6;
+            background-color: #d8d8d8a6;
         }
 
         table a {
@@ -344,7 +344,7 @@
 
         .opcao {
             width: 28%;
-            background-color: #007bffe5;
+            background-color: #4082fc;
             border-radius: 18px;
             padding: 20px;
             margin-top: 14px;
@@ -629,7 +629,7 @@
 <body>
     <header>
     <img src="https://i.ibb.co/KqtKTFT/logo.png" alt="Logo" style="height: 50px; vertical-align: middle;">
-    Wiki do SAC
+    Área do SAC📶
 </header>
     <!-- Seções -->
     <div id="container">
@@ -657,7 +657,7 @@
                 <h2>Bem-vindo à área de atendimento ao Cliente!</h2>
                 <img src="https://c5gwmsmjx1.execute-api.us-east-1.amazonaws.com/prod/empresa/logo/110107/GBS_LOGO_2020.png_002.png_PERFIL.png" alt="ImagemIntro" style="height: 300px;">
                 <img src="https://media.tenor.com/cOzgHz34BacAAAAi/wikipedia-wiki.gif" alt="ImagemIntro" style="height: 300px;">
-                <p><strong>Estamos aqui para ajudá-lo a realizar um atendimento de excelência! Nesta wiki, você encontrará tudo o que precisa saber para atender nossos clientes com agilidade e eficiência.</strong></p>
+                <p><strong>Estamos aqui para ajudá-lo a realizar um atendimento de excelência! Nesta ferramenta, você encontrará tudo o que precisa saber para atender nossos clientes com agilidade e eficiência.</strong></p>
                 <p><strong>Explore as seções ao lado para aprender mais sobre:</strong></p>
                 <ul>
                     <li><strong>Protocolos de atendimento e processos</strong></li>
@@ -690,7 +690,7 @@
     <input type="text" id="pesquisaProtocolo" placeholder="Buscar protocolo..." onkeyup="filtrarProtocolos()">
     
     <!-- Categoria: Básico -->
-    <button onclick="toggleCategory('basico')">Básico</button>
+    <button onclick="toggleCategory('basico')">Básico💬</button>
     <div class="process-column" id="basico" style="display:none;">
         <button onclick="showPopup('protocolo1')"><strong>Informações</strong></button>
         <button onclick="showPopup('protocolo7')"><strong>Internet lenta</strong></button>
@@ -700,7 +700,7 @@
     </div>
 
     <!-- Categoria: Financeiro -->
-    <button onclick="toggleCategory('financeiro')">Financeiro</button>
+    <button onclick="toggleCategory('financeiro')">Financeiro💲</button>
     <div class="process-column" id="financeiro" style="display:none;">
         <button onclick="showPopup('protocolo2')"><strong>2ª via de fatura</strong></button>
         <button onclick="showPopup('protocolo3')"><strong>Info. de pagamento</strong></button>
@@ -712,7 +712,7 @@
     </div>
 
     <!-- Categoria: Solicitações Contratuais -->
-    <button onclick="toggleCategory('contratuais')">Solicitações Contratuais</button>
+    <button onclick="toggleCategory('contratuais')">Solicitações Contratuais📄</button>
     <div class="process-column" id="contratuais" style="display:none;">
         <button onclick="showPopup('protocolo4')"><strong>Renov. contratual</strong></button>
         <button onclick="showPopup('protocolo6')"><strong>Susp. contratual</strong></button>
@@ -723,7 +723,7 @@
     </div>
 
     <!-- Categoria: O.S Suporte Externo -->
-    <button onclick="toggleCategory('suporteExterno')">O.S Suporte Externo</button>
+    <button onclick="toggleCategory('suporteExterno')">O.S Suporte Externo🚔</button>
     <div class="process-column" id="suporteExterno" style="display:none;">
         <button onclick="showPopup('protocolo8')"><strong>Ord. de Serviço</strong></button>
         <button onclick="showPopup('protocolo20')"><strong>Mud. de endereço</strong></button>
@@ -947,6 +947,10 @@
                     <h3>CRM Renovação Aurora</h3>
                     <p>Tutorial de como gerar o protocolo de renovação para o novo plano de Aurora</p>
                     <iframe src="https://www.canva.com/design/DAGSPWCFFuY/aVY0j2K2cyDsCubPEshQZA/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
+                </div>
+                <div class="material">
+                    <h3><strong>Disposição de Baias (N1)</strong></h3>
+                    <iframe src="https://www.canva.com/design/DAGD7FU5_cU/d4G8WeKmfebzKlqEhqDXxA/view?embed" width="950" height="500" frameborder="0" scrolling="auto"></iframe>
                 </div>
             </div>
         </section>
