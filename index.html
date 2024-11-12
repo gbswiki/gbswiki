@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do SAC📶</title>
+    <title>Área do CX📶</title>
     <link rel="icon" href="https://i.ibb.co/2cJ7gjS/favicon-32x32.png" type="image/png">
     <style>
         body {
@@ -630,7 +629,7 @@
 <body>
     <header>
     <img src="https://i.ibb.co/KqtKTFT/logo.png" alt="Logo" style="height: 50px; vertical-align: middle;">
-    Área do SAC📶
+    Área do Customer Experience📶
 </header>
     <!-- Seções -->
     <div id="container">
@@ -655,7 +654,7 @@
         <!-- Introdução -->
         <section id="introducao">
             <div>
-                <h2>Bem-vindo à área de atendimento ao Cliente!</h2>
+                <h2>Bem-vindo à Área do Customer Experience!</h2>
                 <img src="https://c5gwmsmjx1.execute-api.us-east-1.amazonaws.com/prod/empresa/logo/110107/GBS_LOGO_2020.png_002.png_PERFIL.png" alt="ImagemIntro" style="height: 300px;">
                 <img src="https://media.tenor.com/cOzgHz34BacAAAAi/wikipedia-wiki.gif" alt="ImagemIntro" style="height: 300px;">
                 <p><strong>Estamos aqui para ajudá-lo a realizar um atendimento de excelência! Nesta ferramenta, você encontrará tudo o que precisa saber para atender nossos clientes com agilidade e eficiência.</strong></p>
@@ -672,6 +671,7 @@
         <section id="departamentos">
             <h2>Departamentos e suas Finalidades</h2>
             <div class="department-column">
+                <button onclick="showPopup('cx')">O que é CX?</button>
                 <button onclick="showPopup('n1')">Relacionamento N1</button>
                 <button onclick="showPopup('n2')">Suporte Nível 2</button>
                 <button onclick="showPopup('comercial')">Comercial / CRM</button>
@@ -803,6 +803,7 @@
 <section id="conexao">
     <h2>Conexão</h2>
     <button onclick="showPopup('router')">Simulador de Roteador</button>
+    <h1>Clique na imagem do Roteador para assistir um vídeo informativo sobre o modelo.</h1>
     <div class="catalogo">
         <div class="roteador">
             <a href="https://www.youtube.com/watch?v=PFn0GK8C6Mk&t=22s&pp=ygURcnggMTUwMCBpbnRlbGJyYXM%3D" target="_blank">
@@ -1299,8 +1300,8 @@
         </iframe>
         </div>
         <h3>Sobre</h3>
-        <p><strong>Todo o treinamento e ferramentas foram desenvolvido pelo Supervisor Rodrigo S. com o auxílio e consulta dos departamentos, líderes e demais conhecimentos sobre a GbsNet.</strong></p>
-        <p><strong>Demais materiais foram feitos por outros colaboradores que concordaram em ceder os arquivos para a WIKI</strong></p>
+        <p><strong>Todo o treinamento e ferramentas foram desenvolvido pelo Supervisor Rodrigo S. com consulta dos departamentos, líderes e demais conhecimentos sobre a GbsNet.</strong></p>
+        <p><strong>Demais materiais foram feitos por outros colaboradores que concordaram em ceder os arquivos para a ferramenta.</strong></p>
         </section>
 
         <section id="calc">
@@ -1677,6 +1678,13 @@
         </div>
 
         <!-- Popups dos Departamentos -->
+        <div id="popup-cx" class="popup">
+            <h3>CX (Customer Experience)</h3>
+            <img src="https://estruturadinamica.com.br/wp-content/uploads/2024/09/What-Is-Customer-Experience-1.jpg" alt="Atendimento Nível 1" height="200">
+            <p>Customer Experience (CX), ou Experiência do Cliente, é o conjunto de percepções e sentimentos que um cliente tem ao interagir com uma empresa ao longo de toda a sua jornada. Essa experiência abrange todas as etapas de contato, desde o primeiro ponto de comunicação até o pós-venda, incluindo o atendimento, a facilidade de uso dos produtos ou serviços e o suporte. A CX envolve vários fatores que impactam diretamente a satisfação do cliente e a sua lealdade à marca.</p>
+            <button class="close-btn" onclick="closePopup()">Fechar</button>
+        </div>
+
         <div id="popup-n1" class="popup">
             <h3>Atendimento Nível 1 (N1)</h3>
             <img src="https://plugg.to/wp-content/uploads/elementor/thumbs/ilustracao-personalizar-atendimento-ao-cliente-pjybn548s0exq1vi6jbhc3302tzn9t651azmqjy39c.png" alt="Atendimento Nível 1" height="200">
